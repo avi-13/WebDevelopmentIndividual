@@ -40,21 +40,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String saveUser(UserPojo userPojo) {
+    public UserPojo saveUser(UserPojo userPojo) {
         User user = new User();
-        if (userPojo.getId()!= null){
+        if (userPojo.getId() != null) {
             user.setId(userPojo.getId());
         }
         user.setFullName(userPojo.getFullName());
         user.setUsername(userPojo.getUsername());
         user.setEmail(userPojo.getEmail());
         user.setMobileNo(userPojo.getMobileNo());
-
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodePassword = passwordEncoder.encode(userPojo.getPassword());
         user.setPassword(encodePassword);
         userRepo.save(user);
-        return "created";
+        return new UserPojo(user);
     }
 
     @Override
@@ -75,12 +74,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public String updateResetPassword(String email) {
         User user = (User) userRepo.findByEmail(email)
-                .orElseThrow(()-> new RuntimeException("Invalid User email"));
+                .orElseThrow(() -> new RuntimeException("Invalid User email"));
         String updated_password = generatePassword();
         try {
             userRepo.updatePassword(updated_password, email);
             return "CHANGED";
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "ds";
@@ -91,24 +90,25 @@ public class UserServiceImpl implements UserService {
         String password = "";
         Random r = new Random();
         for (int i = 0; i < length; i++) {
-            int randomChar = (int)(r.nextInt(94) + 33);
-            char c = (char)randomChar;
+            int randomChar = (int) (r.nextInt(94) + 33);
+            char c = (char) randomChar;
             password += c;
         }
         return password;
     }
 
-    private void sendPassword(String email, String password ){
+    private void sendPassword(String email, String password) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
         message.setSubject("Your new password is:");
         message.setText(password);
         mailSender.send(message);
     }
+
     @Override
-    public void processPasswordResetRequest(String email){
+    public void processPasswordResetRequest(String email) {
         Optional<User> optionalUser = userRepo.findByEmail(email);
-        if(optionalUser.isPresent()){
+        if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             String password = generatePassword();
             sendPassword(email, password);
@@ -118,6 +118,7 @@ public class UserServiceImpl implements UserService {
             userRepo.save(user);
         }
     }
+
     @Override
     public void sendEmail() {
         try {

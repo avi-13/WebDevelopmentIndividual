@@ -1,19 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Admin-GetProduct</title>
-  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" th:href="@{~/css/adminMovieList.css}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin-MovieList</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" th:href="@{~/css/adminMovieList.css}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{~/css/adminPanel.css}">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/dded80a5ca.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="amlMainClass">
-  <div class="amlAutoDiv" th:each="movies:${adMovies}">
-    <a class="anchor" th:href="@{~/admin/getMovie/}+${movies.id}">
-      <img class="amlImg" th:src="'data:image/png;base64,'+${movies.imageBase64}" />
-    </a>
-  </div>
+<div class="navBar">
+    <div class="logo">
+        <img class="adNavLogo" th:src="@{/images/logo.png}">
+    </div>
+    <div class="right">
+        <div class="info">
+            <p>Hey, <b>Abhishek</b></p>
+            <small class="text-muted">Admin</small>
+        </div>
+        <div class="profile-photo">
+            <img src="/static/images/uiglimpse.gif" alt="">
+        </div>
+    </div>
 </div>
+<div class="container">
+    <aside>
+        <div class="sidebar">
+            <a th:href="@{~/admin/movieList}" class="active">
+                <span class="fa-solid fa-film"></span>
+                <h3>Dashboard</h3>
+            </a>
+            <a th:href="@{/movie/addMovie}" >
+                <span class="fa-solid fa-square-plus"></span>
+                <h3>Add Movie</h3>
+            </a>
+            <a href="">
+                <span class="fa-brands fa-hire-a-helper"></span>
+                <h3>Help</h3>
+            </a>
+            <a th:href="@{~/booking/list}">
+                <span class="fa-solid fa-rectangle-list"></span>
+                <h3>Booking List</h3>
+            </a>
+            <a href="">
+                <span class="fa-solid fa-rectangle-list"></span>
+                <h3>Reviews</h3>
+            </a>
+            <a th:href="@{/logout}">
+                <span class="material-icons-sharp">logout</span>
+                <h3>Logout</h3>
+            </a>
+        </div>
+    </aside>
+    <!-- End of Aside -->
+    <main>
+        <div class="amlMainClass">
+            <div class="amlAutoDiv" th:each="movies:${adMovies}">
+                <a class="anchor" th:href="@{~/admin/getMovie/}+${movies.id}">
+                    <img class="amlImg" th:src="'data:image/png;base64,'+${movies.imageBase64}"/>
+                </a>
+            </div>
+        </div>
 
+    </main>
+    <!-- End Of Main -->
+
+</div>
+<!-- <script src="./js/admin.js"></script> -->
 </body>
 </html>

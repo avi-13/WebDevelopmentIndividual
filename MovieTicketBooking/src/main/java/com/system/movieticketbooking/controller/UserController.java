@@ -37,7 +37,7 @@ public class UserController {
 
     @GetMapping("/create")
     public String createUser(Model model) {
-        model.addAttribute("user",new UserPojo());
+        model.addAttribute("user", new UserPojo());
         return "signup";
     }
 
@@ -48,18 +48,18 @@ public class UserController {
     }
 
     @GetMapping("/profile/{id}")
-    public String getUserProfile(@PathVariable("id") Integer id, Model model, Principal principal){
+    public String getUserProfile(@PathVariable("id") Integer id, Model model, Principal principal) {
         User user = userService.fetchById(id);
-        model.addAttribute("userdata",userService.findByEmail(principal.getName()));
+        model.addAttribute("userdata", userService.findByEmail(principal.getName()));
         model.addAttribute("users", new UserPojo(user));
         model.addAttribute("currentUser", user);
         return "userProfile";
     }
 
     @GetMapping("/edit/{id}")
-    public String editUser(@PathVariable("id") Integer id, Model model, Principal principal){
-        User user =userService.fetchById(id);
-        model.addAttribute("userdata",userService.findByEmail(principal.getName()));
+    public String editUser(@PathVariable("id") Integer id, Model model, Principal principal) {
+        User user = userService.fetchById(id);
+        model.addAttribute("userdata", userService.findByEmail(principal.getName()));
         model.addAttribute("currentUser", new UserPojo(user));
         return "redirect:/user/profile/{id}";
     }
@@ -72,20 +72,18 @@ public class UserController {
 
 
     @GetMapping("/forgotpassword")
-    public String forgotpassword(Model model){
-        model.addAttribute("users",new UserPojo());
+    public String forgotpassword(Model model) {
+        model.addAttribute("users", new UserPojo());
         return ("Forgetpasword");
     }
 
     @PostMapping("/changepassword")
-    public String changepassword(@RequestParam("email") String email, Model model, @Valid UserPojo userPojo){
+    public String changepassword(@RequestParam("email") String email, Model model, @Valid UserPojo userPojo) {
         userService.processPasswordResetRequest(userPojo.getEmail());
-        model.addAttribute("message","Your new password has been sent to your email Please " +
+        model.addAttribute("message", "Your new password has been sent to your email Please " +
                 "check your inbox");
         return "redirect:/login";
     }
-
-
 
 
 }

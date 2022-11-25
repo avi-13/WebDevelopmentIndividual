@@ -8,70 +8,115 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <title>Admin Panel</title>
     <link rel="stylesheet" th:href="@{~/css/addMovies.css}">
-    <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
-    <link rel="stylesheet" th:href="@{~/css/footer.css}" >
+    <link rel="stylesheet" th:href="@{~/css/adminPanel.css}" >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+          rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://kit.fontawesome.com/dded80a5ca.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+
 </head>
-
 <body>
-
-<div th:replace="~{fragments/navbar.html :: header}"></div>
-
+<div class="navBar">
+    <div class="logo">
+        <img class="adNavLogo" th:src="@{/images/logo.png}">
+    </div>
+    <div class="right">
+        <div class="info">
+            <p>Hey, <b>Abhishek</b></p>
+            <small class="text-muted">Admin</small>
+        </div>
+    </div>
+</div>
 <div class="container">
+    <aside>
+        <div class="sidebar">
+            <a th:href="@{~/admin/movieList}" >
+                <span class="fa-solid fa-film"></span>
+                <h3>Dashboard</h3>
+            </a>
+            <a th:href="@{/movie/addMovie}" class="active">
+                <span class="fa-solid fa-square-plus"></span>
+                <h3>Add Movie</h3>
+            </a>
+            <a href="">
+                <span class="fa-brands fa-hire-a-helper"></span>
+                <h3>Help</h3>
+            </a>
+            <a th:href="@{~/booking/list}">
+                <span class="fa-solid fa-rectangle-list"></span>
+                <h3>Booking List</h3>
+            </a>
+            <a href="">
+                <span class="fa-solid fa-rectangle-list"></span>
+                <h3>Reviews</h3>
+            </a>
+            <a th:href="@{/logout}">
+                <span class="material-icons-sharp">logout</span>
+                <h3>Logout</h3>
+            </a>
+        </div>
+    </aside>
+    <!-- End of Aside -->
+    <main>
+        <div class="admContainer">
 
-    <h1>Movie Details</h1>
+            <h1>Movie Details</h1>
 
-    <form th:method="post" th:action="@{/movie/saveMovie}" th:object="${movie}" enctype="multipart/form-data">
+            <form th:method="post" th:action="@{~/movie/saveMovie}" th:object="${movie}" enctype="multipart/form-data">
 
-        <div class="left-side">
+                <div class="left-side">
 
-            <input class="field" type="text" hidden placeholder="UserId..."  th:field="*{movieId}" th:value="${movie.movieId}" />
+                    <input class="field" type="text" hidden placeholder="UserId..."  th:field="*{movieId}"  />
 
-            <input type="text" placeholder="MovieTitle" required th:field="*{movieName}" />
+                    <input type="text" placeholder="MovieTitle" required th:field="*{movieName}" />
 
-            <input type="text" placeholder="MovieDirector" required th:field="*{director}"  />
+                    <input type="text" placeholder="MovieDirector" required th:field="*{director}"  />
 
-            <input type="text" placeholder="Cast" required th:field="*{cast}"  th:value="${movie.cast}"  />
+                    <input type="text" placeholder="Cast" required th:field="*{cast}"    />
 
-            <input type="text" placeholder="Genre" required th:field="*{genre}"  th:value="${movie.genre}"  />
+                    <input type="text" placeholder="Genre" required th:field="*{genre}"  />
 
-            <input type="text" placeholder="Duration" required th:field="*{duration}"  th:value="${movie.duration}"  />
+                    <input type="text" placeholder="Duration" required th:field="*{duration}"    />
 
-            <input placeholder="No.of Shows" required th:field="*{shows}" th:value="${movie.shows}"   />
+                    <input placeholder="No.of Shows" required th:field="*{shows}"  />
 
-            <select name="category " id="category" th:field="*{category}" th:value="${movie.category}">
-                <option value="Category">Category</option>
-                <option value="Now Showing">Now Showing</option>
-                <option value="Next Change">Next Change</option>
-                <option value="Coming Soon">Coming Soon</option>
-            </select>
+                    <select name="cubes " id="cubes" th:field="*{cubes}" >
+                        <option value="cubes">Cubes</option>
+                        <option value="Cube 1">Cube 1</option>
+                        <option value="Cube 2">Cube 2</option>
+                        <option value="Cube 3">Cube 3</option>
+                    </select>
 
-            <input type="date" required th:field="*{releaseDate}" th:value="${movie.releaseDate}"   />
+                    <input type="date" required th:field="*{releaseDate}"   />
 
-            <textarea rows="10" cols="100" placeholder="MovieDescription" required th:field="*{movieDescription}" th:value="${movie.movieDescription}" > </textarea>
+                    <textarea rows="10" cols="100" placeholder="MovieDescription" required th:field="*{movieDescription}"  > </textarea>
 
+                </div>
+
+                <div class="moviePic">
+                    <img class="img" alt="moviePic" th:src="@{/images/upload.png}" id="movieImage" >
+                    <input id="img" hidden th:field="*{image}" accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile()">
+                </div>
+
+                <div class="moviePic1">
+                    <img class="img1" alt="moviePic1" th:src="@{/images/uploadcover.png}" id="movieImage1" >
+                    <input id="img1" hidden th:field="*{image1}" accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile1()">
+                </div>
+
+                <div class="addMovieBtn">
+                    <button class="Btn" type="submit">Add Movie</button>
+                </div>
+            </form>
         </div>
 
-        <div class="moviePic">
-            <img class="img" alt="moviePic" th:src="@{/images/upload.png}" id="movieImage" >
-            <input id="img" hidden th:field="*{image}" accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile()">
-        </div>
+    </main>
+    <!-- End Of Main -->
 
-        <div class="moviePic1">
-            <img class="img1" alt="moviePic1" th:src="@{/images/uploadcover.png}" id="movieImage1" >
-            <input id="img1" hidden th:field="*{image1}" accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile1()">
-        </div>
-
-        <div class="addMovieBtn">
-            <button class="Btn" type="submit">Add Movie</button>
-        </div>
-    </form>
 </div>
 <script th:src="@{~/js/addMovie.js}"></script>
 <script th:src="@{~/js/addMovie1.js}"></script>
-
-<div th:replace="~{fragments/footer.html :: footer}"></div>
+<!-- <script src="./js/admin.js"></script> -->
 </body>
-
 </html>

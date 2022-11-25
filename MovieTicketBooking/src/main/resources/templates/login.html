@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="stylesheet" href="/static/css/login.css">
-    <link rel="stylesheet" th:href="@{~/css/login.css}" >
-    <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
-    <link rel="stylesheet" th:href="@{~/css/footer.css}" >
+    <link rel="stylesheet" th:href="@{~/css/login.css}">
+    <link rel="stylesheet" th:href="@{~/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{~/css/footer.css}">
     <title>Login</title>
 </head>
 <body>
@@ -18,15 +18,17 @@
     <div class="imagePart"></div>
     <div class="signInPart">
         <div class="container">
-            <h1>Login to access to<br />your account</h1>
+            <h1>Login to access to<br/>your account</h1>
             <div class="login-form">
-                <form method="post" th:action="@{/login}" >
+                <form method="post" th:action="@{/login}">
                     <input type="text" name="email" id="email" placeholder="E-mail Address" required autofocus/>
                     <input type="password" name="password" id="password" placeholder="Password" required autofocus/>
                     <button class="submit" type="submit">LOG-IN</button>
                 </form>
             </div>
             <span style="color: whitesmoke"> <i>Don't Have An Account ?</i> <a th:href="@{~/user/create}" style="color: #00ffd5">SignUp</a></span>
+            <span style="color: whitesmoke"> <a th:href="@{~/user/forgotpassword}" style="color: #00ffd5">Forgot Password ?</a></span>
+
         </div>
     </div>
 </div>

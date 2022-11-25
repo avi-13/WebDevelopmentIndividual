@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UserProfile</title>
     <link rel="stylesheet" th:href="@{~/css/userProfile.css}">
-    <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
-    <link rel="stylesheet" th:href="@{~/css/footer.css}" >
+    <link rel="stylesheet" th:href="@{~/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{~/css/footer.css}">
 </head>
 
 
@@ -16,7 +16,7 @@
 
 <div th:replace="~{fragments/navbar.html :: header}"></div>
 
-<form th:method="post" th:action="@{/user/save}" th:object="${currentUser}" >
+<form th:method="post" th:action="@{/user/save}" th:object="${currentUser}">
 
     <div class="rightPart">
         <h2>
@@ -34,7 +34,7 @@
 
         <div class="number">
             Phone Number<br>
-            <input class="info" type ="text" th:field="*{mobileNo}" th:value="${currentUser.getMobileNo()}">
+            <input class="info" type="text" th:field="*{mobileNo}" th:value="${currentUser.getMobileNo()}">
         </div>
 
         <div class="userName">
@@ -48,11 +48,11 @@
         </div>
 
         <div class="pw">Password<br>
-            <input class="info" type="password" th:field="*{password}" th:value="${currentUser.getPassword()}">
+            <input class="info" required type="password" th:field="*{password}" th:value="${currentUser.getPassword()}">
         </div>
 
         <div class="cpw">Retype Password<br>
-            <input class="info" type="password">
+            <input class="info" required type="password">
         </div>
 
 
@@ -65,7 +65,7 @@
 
         <div class="deleteButton">
             <a class="delete " th:href="@{~/user/delete/}+${currentUser.id}">
-                <button type="button" >DeleteAccount</button>
+                <button type="button">DeleteAccount</button>
             </a>
         </div>
     </div>

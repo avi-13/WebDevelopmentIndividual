@@ -15,6 +15,7 @@ function previewFile1() {
         reader1.readAsDataURL(file1);
     }
 }
+
 $(function () {
     $("#movieImage1").on("click", function () {
         $("#img1").click();

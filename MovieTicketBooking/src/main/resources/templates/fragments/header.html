@@ -1,45 +1,35 @@
-<!--<div th:fragment="header" class="head">-->
-<!--  <link rel="stylesheet" href="/static/css/header.css">-->
-<!--  &lt;!&ndash; Logo Division &ndash;&gt;-->
-<!--  <div class="logo-div">-->
-<!--    <button class="btn" onclick="alert('Noice')" >-->
-<!--&lt;!&ndash;      <img th:src="@{~/images/logosmall.png}" alt="logo" class="logo">&ndash;&gt;-->
-<!--      <img src="/static/images/logosmall.png" alt="logo" class="logo">-->
-<!--    </button>-->
-<!--  </div>-->
-<!--  <div class="navbarItems">-->
-<!--    <ul>-->
-<!--      <li>-->
-<!--        <a href="#"> Home </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a href="#"> About </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a href="#"> TicketRates </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a href="#"> MyTickets </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a href="#"> Contact Us </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a href="#"> Help </a>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
+<div th:fragment="header" class="head">
 
-<!--  &lt;!&ndash; Profile Picture Division &ndash;&gt;-->
-<!--  <div class="loginSignup">-->
-<!--    <ul>-->
-<!--      <li>-->
-<!--        <a href="#"> SignIn </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a href="#">SignUp</a>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
+    <header>
+        <div class="inner-width">
+            <a th:href="@{~/home/homepage}">
+                <button class="btn">
+                    <img th:src="@{~/images/logosmall.png}" alt="logo" class="logo">
+                </button>
+            </a>
+            <nav class="navigation-menu">
+                <a href="#"><i class="fas fa-home home"></i> Home</a>
+                <a href="#"><i class="fas fa-align-left about"></i> About</a>
+                <a href="#"><i class="fab fa-buffer works"></i> My Tickets</a>
+                <a href="#"><i class="fa-brands fa-hire-a-helper"></i>Help</a>
+                <a href="#"><i class="fas fa-headset contact"></i> Contact</a>
+            </nav>
 
-<!--</div>-->
+
+            <a th:href="@{~/user/profile/}+${userdata.id}">
+                <h4 th:text="${userdata.getFullName()}"></h4>
+            </a>
+
+            <a th:href="@{~/logout}">
+                <h4 class="picture">Logout </h4>
+            </a>
+
+
+            <i class="menu-toggle-btn fas fa-bars"></i>
+
+
+        </div>
+    </header>
+
+
+</div>

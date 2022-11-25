@@ -1,25 +1,28 @@
 body {
     display: flex;
-    align-items: center;
-    flex-direction:column;
-    background: -webkit-linear-gradient(top, #09203f 10%, #09cedc 60%);
-    overflow-x: hidden;
+    /* align-items: center; */
+    flex-direction: column;
+     background:cadetblue ;
+    /* overflow-x: hidden; */
 }
-h1{
-    color: whitesmoke;
+
+h1 {
+    color: black;
     font-size: 6em;
 }
-.container{
+
+.admContainer {
     display: flex;
     flex-direction: column;
+    height: auto;
     align-items: center;
-    padding: 3%;
-    width: 80%;
+    padding: 0;
+    width: 100%;
     border: black solid;
     border-radius: 5px;
 }
 
-form{
+form {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -29,7 +32,7 @@ form{
     border-radius: 20px;
 }
 
-input{
+input {
     background: whitesmoke;
     width: 33%;
     border: 1px solid black;
@@ -47,9 +50,9 @@ select {
     margin-top: 2%;
 }
 
-textarea{
+textarea {
     background: whitesmoke;
-    resize:none;
+    resize: none;
     width: 100%;
     border: 1px solid black;
     border-radius: 5px;
@@ -57,13 +60,13 @@ textarea{
     margin-top: 2%;
 }
 
-.moviePic{
+.moviePic {
     margin-top: 2%;
     height: 300px;
     width: 300px;
 }
 
-.moviePic img{
+.moviePic img {
     object-fit: contain;
     height: 100%;
     width: 100%;
@@ -71,26 +74,26 @@ textarea{
     cursor: pointer;
 }
 
-.moviePic1{
+.moviePic1 {
     margin-top: 2%;
     height: 300px;
     width: 693px;
 }
 
-.moviePic1 img{
+.moviePic1 img {
     height: 100%;
     width: 100%;
     box-shadow: 0 0 21px 0 black;
     cursor: pointer;
 }
 
-.addMovieBtn{
+.addMovieBtn {
     margin-left: 40%;
     width: 25%;
     margin-top: 2%;
 }
 
-.Btn{
+.Btn {
     display: flow-root;
     width: 100%;
     height: 40px;

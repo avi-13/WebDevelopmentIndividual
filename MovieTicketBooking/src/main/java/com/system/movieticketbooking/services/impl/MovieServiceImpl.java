@@ -25,7 +25,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public MoviePojo saveMovie(MoviePojo moviePojo) throws IOException {
         Movie movie = new Movie();
-        if (moviePojo.getMovieId() != null){
+        if (moviePojo.getMovieId() != null) {
             movie.setId(moviePojo.getMovieId());
         }
         movie.setMovieName(moviePojo.getMovieName());
@@ -35,10 +35,10 @@ public class MovieServiceImpl implements MovieService {
         movie.setDuration(moviePojo.getDuration());
         movie.setReleaseDate(moviePojo.getReleaseDate());
         movie.setGenre(moviePojo.getGenre());
-        movie.setCategory(moviePojo.getCategory());
+        movie.setCubes(moviePojo.getCubes());
         movie.setShows(moviePojo.getShows());
 
-        if(moviePojo.getImage()!=null && moviePojo.getImage1()!=null){
+        if (moviePojo.getImage() != null && moviePojo.getImage1() != null) {
             StringBuilder fileNames = new StringBuilder();
             Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, moviePojo.getImage().getOriginalFilename());
             fileNames.append(moviePojo.getImage().getOriginalFilename());
@@ -56,16 +56,16 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-        public Movie fetchById(Integer id) {
-            Movie movie = movieRepo.findById(id).orElseThrow(()-> new RuntimeException("Could Not Find"));
-            movie = Movie.builder()
-                    .id(movie.getId())
-                    .movieName(movie.getMovieName())
-                    .movieDescription(movie.getMovieDescription())
-                    .genre(movie.getGenre())
+    public Movie fetchById(Integer id) {
+        Movie movie = movieRepo.findById(id).orElseThrow(() -> new RuntimeException("Could Not Find"));
+        movie = Movie.builder()
+                .id(movie.getId())
+                .movieName(movie.getMovieName())
+                .movieDescription(movie.getMovieDescription())
+                .genre(movie.getGenre())
                 .cast(movie.getCast())
                 .director(movie.getDirector())
-                .category(movie.getCategory())
+                .cubes(movie.getCubes())
                 .duration(movie.getDuration())
                 .releaseDate(movie.getReleaseDate())
                 .shows(movie.getShows())
@@ -96,7 +96,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<Movie> fetchAll() {
-         return movieRepo.findAll();
+        return movieRepo.findAll();
     }
 
     @Override
@@ -115,11 +115,11 @@ public class MovieServiceImpl implements MovieService {
         Map<String, List<Movie>> movies = new HashMap<>();
 
         for (Movie each : allMovieList) {
-            if  (Objects.equals(each.getReleaseDate(), Date.valueOf(today)) || (each.getReleaseDate().before(Date.valueOf(today)))) {
+            if (Objects.equals(each.getReleaseDate(), Date.valueOf(today)) || (each.getReleaseDate().before(Date.valueOf(today)))) {
                 nowShowing.add(each);
-            } else if ((each.getReleaseDate().after(Date.valueOf(today))) && (each.getReleaseDate().before(sqlSevenDaysBefore)) ){
+            } else if ((each.getReleaseDate().after(Date.valueOf(today))) && (each.getReleaseDate().before(sqlSevenDaysBefore))) {
                 nextChange.add(each);
-            } else  {
+            } else {
                 comingSoon.add(each);
             }
         }
@@ -129,7 +129,6 @@ public class MovieServiceImpl implements MovieService {
 
         return movies;
     }
-
 
 
 }

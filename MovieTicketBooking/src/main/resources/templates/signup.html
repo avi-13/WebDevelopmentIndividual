@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/signup.css">
-    <link rel="stylesheet" th:href="@{~/css/signup.css}" >
-    <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
-    <link rel="stylesheet" th:href="@{~/css/footer.css}" >
+    <link rel="stylesheet" th:href="@{~/css/signup.css}">
+    <link rel="stylesheet" th:href="@{~/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{~/css/footer.css}">
     <title>Create An Account</title>
 </head>
 <body>
@@ -16,30 +16,37 @@
 
 <div class="wrapperSignup">
     <div class="signupPart">
-            <h1>Create An Account To<br/>Book Your First Ticket</h1>
-            <div class="signup-form">
-                <form th:method="post" th:action="@{/user/save}" th:object="${user}">
-                    <input type="text" hidden placeholder="UserId..." th:field="*{id}" th:value="${user.id}" />
+        <h1>Create An Account To<br/>Book Your First Ticket</h1>
+        <div class="signup-form">
+            <form th:method="post" th:action="@{/user/save}" th:object="${user}">
+                <input type="text" hidden placeholder="UserId..." th:field="*{id}" th:value="${user.id}"/>
 
-                    <input type="text" required placeholder="FullName..." th:field="*{fullName}" th:value="${user.fullName}" />
+                <input type="text" required placeholder="FullName..." th:field="*{fullName}"
+                       th:value="${user.fullName}"/>
 
-                    <input type="text" required placeholder="UserName..." th:field="*{username}" th:value="${user.username}" />
+                <input type="text" required placeholder="UserName..." th:field="*{username}"
+                       th:value="${user.username}"/>
 
 
-                    <input type="email" required placeholder="Enter your email..." th:field="*{email}" th:value="${user.email}" />
+                <input type="email" required placeholder="Enter your email..." th:field="*{email}"
+                       th:value="${user.email}"/>
 
-                    <input type="text" required placeholder="Enter phone number..." th:field="*{mobileNo}" th:value="${user.mobileNo}" />
+                <input type="text" required placeholder="Enter phone number..." th:field="*{mobileNo}"
+                       th:value="${user.mobileNo}"/>
 
-                    <input type="password" required placeholder="Password..." th:field="*{password}" th:value="${user.password}" />
+                <input type="password" required placeholder="Password..." th:field="*{password}"
+                       th:value="${user.password}"/>
 
-                    <input type="password" required placeholder="Confirm Password..." th:field="*{password}" th:value="${user.password}" />
+                <input type="password" required placeholder="Confirm Password..." th:field="*{password}"
+                       th:value="${user.password}"/>
 
-                    <button type="submit"  class="submit">Sign-Up</button>
+                <button type="submit" class="submit">Sign-Up</button>
 
-                    <span style="color: whitesmoke"> <i>Have An Account ?</i> <a th:href="@{~/user/login}" style="color: #00ffd5">SignIn</a></span>
+                <span style="color: whitesmoke"> <i>Have An Account ?</i> <a th:href="@{~/user/login}"
+                                                                             style="color: #00ffd5">SignIn</a></span>
 
-                </form>
-            </div>
+            </form>
+        </div>
     </div>
 </div>
 <div th:replace="~{fragments/footer.html :: footer}"></div>

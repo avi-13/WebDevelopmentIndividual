@@ -27,9 +27,12 @@
                             <div class="form-content">
                                 <div class="form-items">
                                     <form th:method="post" th:action="@{/user/changepassword}" th:object="${users}">
-                                        <input class="form-control" type="text" name="email" placeholder="E-mail Address" required th:field="*{email}">
+                                        <input class="form-control" type="text" name="email"
+                                               placeholder="E-mail Address" required th:field="*{email}">
                                         <div class="form-button full-width">
-                                            <button type="submit" class="btn btn-lg btn-primary btn-block mt-3">Send Reset Link</button>
+                                            <button type="submit" class="btn btn-lg btn-primary btn-block mt-3">Send
+                                                Reset Link
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

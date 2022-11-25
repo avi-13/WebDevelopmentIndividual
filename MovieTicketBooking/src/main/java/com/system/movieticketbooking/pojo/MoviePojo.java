@@ -33,7 +33,7 @@ public class MoviePojo {
 
     private Integer shows;
 
-    private String category;
+    private String cubes;
 
     private MultipartFile image;
     private MultipartFile image1;
@@ -47,7 +47,7 @@ public class MoviePojo {
         this.genre = movie.getGenre();
         this.releaseDate = movie.getReleaseDate();
         this.duration = movie.getDirector();
-        this.category = movie.getCategory();
+        this.cubes = movie.getCubes();
         this.shows = movie.getShows();
     }
 }

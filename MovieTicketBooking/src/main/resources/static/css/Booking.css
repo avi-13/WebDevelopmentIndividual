@@ -1,35 +1,13 @@
-h1 {
-    text-align: center;
+*{
+    background: #fdd6bd;
 }
-
-.form-group {
-    margin: 20px;
+.bContainer{
+    display:flex;
+    flex-direction:column;
+    background: #0b085e;
+    height:auto;
 }
-
-.seats {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 10px;
-}
-
-label {
-    display: block;
-    text-align: center;
-}
-
-input[type=checkbox] {
-    display: none;
-}
-
-input[type=checkbox] + span {
-    display: block;
-    padding: 10px;
-    background-color: lightgray;
-    text-align: center;
-    cursor: pointer;
-}
-
-input[type=checkbox]:checked + span {
-    background-color: green;
-    color: white;
+input{
+    position:relative;
+    top:10px
 }

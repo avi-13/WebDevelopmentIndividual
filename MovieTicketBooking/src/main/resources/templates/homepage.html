@@ -4,26 +4,27 @@
     <meta charset="UTF-8">
     <title>HomePage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
-    <link rel="stylesheet" th:href="@{~/css/footer.css}" >
-    <link rel="stylesheet" th:href="@{~/css/homepage.css}" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" th:href="@{~/css/header.css}">
+    <link rel="stylesheet" th:href="@{~/css/footer.css}">
+    <link rel="stylesheet" th:href="@{~/css/homepage.css}">
 </head>
 <body>
-<div th:replace="~{fragments/navbar.html :: header}"></div>
-<div class="homeMainClass" style="border: solid black">
-    <div class="imageBanner" style="border: solid blue">
+<div th:replace="~{fragments/header.html :: header}"></div>
+<div class="homeMainClass">
+    <div class="imageBanner">
     </div>
     <div class="movies">
         <div>
             <h1>Now Showing</h1>
         </div>
-        <div class="nowShowing" >
+        <div class="nowShowing">
             <div class="autoMovies" th:each="nowshowing:${movie}">
-                    <img class="movieImg" th:src="'data:image/png;base64,'+${nowshowing.imageBase64}" >
+                <img class="movieImg" th:src="'data:image/png;base64,'+${nowshowing.imageBase64}">
 
-                        <a href= "/" class="btn1">BookNow</a>
+                <a href="/" class="btn1">BookNow</a>
 
-                        <a href= "/" class="btn2">SeeDetails</a>
+                <a th:href="@{~/movie/}+${nowshowing.id}" class="btn2">SeeDetails</a>
 
             </div>
         </div>
@@ -31,13 +32,13 @@
             <h1>Next Change</h1>
         </div>
 
-        <div class="nextChange" >
+        <div class="nextChange">
             <div class="autoMovies" th:each="nextChange:${nextChange}">
-                <img class="movieImg" th:src="'data:image/png;base64,'+${nextChange.imageBase64}" >
+                <img class="movieImg" th:src="'data:image/png;base64,'+${nextChange.imageBase64}">
 
-                <a href= "/" class="btn1">BookNow</a>
+                <a href="/" class="btn1">BookNow</a>
 
-                <a href= "/" class="btn2">SeeDetails</a>
+                <a th:href="@{~/movie/}+${nextChange.id}" class="btn2">SeeDetails</a>
 
             </div>
         </div>
@@ -45,18 +46,25 @@
         <div>
             <h1>Coming Soon</h1>
         </div>
-        <div class="comingSoon" >
+        <div class="comingSoon">
             <div class="autoMovies" th:each="comingSoon:${comingSoon}">
-                <img class="movieImg" th:src="'data:image/png;base64,'+${comingSoon.imageBase64}" >
+                <img class="movieImg" th:src="'data:image/png;base64,'+${comingSoon.imageBase64}">
 
-                <a href= "/" class="btn1">BookNow</a>
+                <a href="/" class="btn1">BookNow</a>
 
-                <a href= "/" class="btn2">SeeDetails</a>
+                <a th:href="@{~/movie/}+${comingSoon.id}" class="btn2">SeeDetails</a>
 
             </div>
         </div>
     </div>
 </div>
 <div th:replace="~{fragments/footer.html :: footer}"></div>
+
+<script type="text/javascript">
+    $(".menu-toggle-btn").click(function () {
+        $(this).toggleClass("fa-times");
+        $(".navigation-menu").toggleClass("active");
+    });
+</script>
 </body>
 </html>

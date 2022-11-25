@@ -20,7 +20,7 @@ public class EmailConfig {
     public JavaMailSender getJavaMailSender() throws Exception {
         try {
             EmailCredentials emailCredentials = emailCredRepo.findOneByActive();
-            if (emailCredentials !=null){
+            if (emailCredentials != null) {
                 JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 
                 Properties props = new Properties();
@@ -35,7 +35,7 @@ public class EmailConfig {
                 mailSender.setUsername(emailCredentials.getEmail());
                 mailSender.setPassword(emailCredentials.getPassword());
                 return mailSender;
-            }else {
+            } else {
                 return new JavaMailSenderImpl();
             }
         } catch (Exception e) {

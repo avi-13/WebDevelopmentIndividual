@@ -31,28 +31,31 @@ public class SpringSecurityConfig {
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
     }
+
     @Bean
-    protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws  Exception{
+    protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers( "/home/**", "/user/**","/admin/**","/movie/**")
+                .requestMatchers("/home/**", "/user/**", "/movie/**", "/seat/**")
                 .permitAll()
+                .requestMatchers("/admin/**")
+                .hasAuthority("Admin")
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/home/homepage",true)
+                .defaultSuccessUrl("/home/homepage", true)
                 .usernameParameter("email")
                 .permitAll()
                 .and()
                 .httpBasic();
         return httpSecurity.build();
     }
+
     @Bean
-    public WebSecurityCustomizer webSecurityCustomizer()
-    {
-        return (web) -> web.ignoring().requestMatchers("/css/**","/images/**","/js/**");
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/css/**", "/images/**", "/js/**");
     }
 }
 

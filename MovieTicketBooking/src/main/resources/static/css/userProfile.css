@@ -90,7 +90,7 @@
 /*}*/
 /*!* navigation upto here *!*/
 
-.rightPart{
+.rightPart {
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -101,20 +101,24 @@
     height: 68vh;
 
 }
-h1{
+
+h1 {
     margin-left: 20px;
 
 
 }
-h2{
+
+h2 {
     margin-left: 100px;
     margin-top: 20px;
 }
-h3{
+
+h3 {
     margin-left: 100px;
     margin-top: 20px;
 }
-.info{
+
+.info {
     border-radius: 5px;
     margin-top: 10px;
     height: 5vh;
@@ -123,23 +127,8 @@ h3{
     background-color: #eee;
     text-transform: none;
 }
-.rightPart .nameBox{
-    border-radius: 20px;
-    margin-top: 20px;
-    margin-left: 100px;
-    width: 30%;
 
-
-}
-.rightPart .number{
-    border-radius: 20px;
-    margin-top: -70px;
-    margin-left: 800px;
-    width: 30%;
-
-}
-
-.rightPart .userName{
+.rightPart .nameBox {
     border-radius: 20px;
     margin-top: 20px;
     margin-left: 100px;
@@ -148,13 +137,31 @@ h3{
 
 }
 
-.rightPart .email{
+.rightPart .number {
+    border-radius: 20px;
+    margin-top: -70px;
+    margin-left: 800px;
+    width: 30%;
+
+}
+
+.rightPart .userName {
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 100px;
+    width: 30%;
+
+
+}
+
+.rightPart .email {
     border-radius: 20px;
     margin-top: -70px;
     margin-left: 800px;
     width: 30%;
 }
-.rightPart .pw{
+
+.rightPart .pw {
     border-radius: 20px;
     margin-top: 20px;
     margin-left: 100px;
@@ -162,9 +169,9 @@ h3{
     /* border: solid green 5px; */
 
 
-
 }
-.rightPart .cpw{
+
+.rightPart .cpw {
     border-radius: 20px;
     margin-top: -70px;
     margin-left: 800px;
@@ -172,13 +179,13 @@ h3{
     /* border: solid red 5px; */
 
 
-
 }
-.rightPart .saveButton button{
+
+.rightPart .saveButton button {
     border-radius: 10px;
     margin-top: 45px;
     margin-left: 275px;
-    width:10%;
+    width: 10%;
     height: 40px;
     background-color: #24a0ed;
     border: transparent;
@@ -186,11 +193,12 @@ h3{
     font-weight: 700;
     cursor: pointer;
 }
-.rightPart .deleteButton button{
+
+.rightPart .deleteButton button {
     border-radius: 10px;
     margin-top: -35px;
     margin-left: 800px;
-    width:10%;
+    width: 10%;
     /* border: green solid 5px; */
     height: 40px;
     background-color: red;

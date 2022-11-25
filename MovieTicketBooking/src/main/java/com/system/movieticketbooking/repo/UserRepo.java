@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserRepo extends JpaRepository< User, Integer> {
-    @Query(value="select * from USERS where email=?1", nativeQuery = true)
+public interface UserRepo extends JpaRepository<User, Integer> {
+    @Query(value = "select * from USERS where email=?1", nativeQuery = true)
     Optional<User> findByEmail(String email);
 
     @Query(value = "UPDATE users SET password =?1 WHERE email = ?2", nativeQuery = true)

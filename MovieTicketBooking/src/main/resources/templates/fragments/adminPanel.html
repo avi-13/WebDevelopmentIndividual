@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" th:href="@{~/css/addMovies.css}">
+  <link rel="stylesheet" th:href="@{~/css/adminPanel.css}" >
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+        rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://kit.fontawesome.com/dded80a5ca.js" crossorigin="anonymous"></script>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <!--  <link rel="stylesheet" href="/static/css/adminPanel.css">-->
+
+</head>
+<body>
+<div class="navBar">
+  <div class="logo">
+    <img class="adNavLogo" th:src="@{/images/logo.png}">
+  </div>
+  <div class="right">
+    <div class="info">
+      <p>Hey, <b>Abhishek</b></p>
+      <small class="text-muted">Admin</small>
+    </div>
+    <div class="profile-photo">
+      <img src="/static/images/uiglimpse.gif" alt="">
+    </div>
+  </div>
+</div>
+<div class="container">
+  <aside>
+    <div class="sidebar">
+      <a href="/templates/addMovie.html" class="active">
+        <span class="material-icons-sharp">dashboard</span>
+        <h3>Dashboard</h3>
+      </a>
+      <a th:href="@{/movie/addMovie}">
+        <span class="material-icons-sharp">person_outline</span>
+        <h3>Add Movie</h3>
+      </a>
+      <a href="">
+        <span class="material-icons-sharp">receipt_long</span>
+        <h3>Bookings</h3>
+      </a>
+      <a href="">
+        <span class="material-icons-sharp">add</span>
+        <h3>Add Destination</h3>
+      </a>
+      <a href="">
+        <span class="material-icons-sharp">reviews</span>
+        <h3>Reviews</h3>
+      </a>
+      <a href="">
+        <span class="material-icons-sharp">logout</span>
+        <h3>Logout</h3>
+      </a>
+    </div>
+  </aside>
+  <!-- End of Aside -->
+  <main>
+    <div class="admContainer">
+
+      <h1>Movie Details</h1>
+
+      <form th:method="post" th:action="@{/movie/saveMovie}" th:object="${fetchMovies}" enctype="multipart/form-data">
+
+        <div class="left-side">
+
+          <input class="field" type="text" hidden placeholder="UserId..." th:field="*{movieId}"
+                 th:value="${fetchMovie.getId()}"/>
+
+          <input type="text" placeholder="MovieTitle" required th:field="*{movieName}"
+                 th:value="${fetchMovie.getMovieName()}"/>
+
+          <input type="text" placeholder="MovieDirector" required th:field="*{director}"
+                 th:value="${fetchMovie.getDirector()}"/>
+
+          <input type="text" placeholder="Cast" required th:field="*{cast}" th:value="${fetchMovie.getCast()}"/>
+
+          <input type="text" placeholder="Genre" required th:field="*{genre}" th:value="${fetchMovie.getGenre()}"/>
+
+          <input type="text" placeholder="Duration" required th:field="*{duration}"
+                 th:value="${fetchMovie.getDuration()}"/>
+
+          <input placeholder="No.of Shows" required th:field="*{shows}" th:value="${fetchMovie.getShows()}"/>
+
+          <select name="cubes " id="cubes" th:field="*{cubes}" th:value="${fetchMovie.getCubes()}">
+            <option value="cubes">Cubes</option>
+            <option value="Cube 1">Cube 1</option>
+            <option value="Cube 2">Cube 2</option>
+            <option value="Cube 3">Cube 3</option>
+          </select>
+
+          <input type="date" required th:field="*{releaseDate}" th:value="${fetchMovie.getReleaseDate()}"/>
+
+          <textarea rows="10" cols="100" placeholder="MovieDescription" required th:field="*{movieDescription}"
+                    th:value="${fetchMovie.getMovieDescription()}"> </textarea>
+
+        </div>
+
+        <div class="moviePic">
+          <img class="img" alt="moviePic" th:src="'data:image/png;base64,'+${fetchMovie.imageBase64}" id="movieImage">
+          <input id="img" hidden th:field="*{image}" accept="image/jpeg, image/png, image/jpg" type="file"
+                 onchange="previewFile()">
+        </div>
+
+        <div class="moviePic1">
+          <img class="img1" alt="moviePic1" th:src="'data:image/png;base64,'+${fetchMovie.image1Base64}"
+               id="movieImage1">
+          <input id="img1" hidden th:field="*{image1}" accept="image/jpeg, image/png, image/jpg" type="file"
+                 onchange="previewFile1()">
+        </div>
+
+        <div class="addMovieBtn">
+          <a class="Btn" th:href="@{~/admin/edit/}+${fetchMovie.id}">
+            <button type="submit">Save Changes</button>
+          </a>
+          <a class="Btn" th:href="@{~/admin/delete/}+${fetchMovie.id}">
+            <button type="button">Delete Product</button>
+          </a>
+        </div>
+
+
+      </form>
+    </div>
+
+  </main>
+  <!-- End Of Main -->
+
+</div>
+<script th:src="@{~/js/addMovie.js}"></script>
+<script th:src="@{~/js/addMovie1.js}"></script>
+<!-- <script src="./js/admin.js"></script> -->
+</body>
+</html>

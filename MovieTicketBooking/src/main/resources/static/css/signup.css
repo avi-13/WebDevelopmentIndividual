@@ -1,29 +1,29 @@
 body {
     display: flex;
     align-items: center;
-    flex-direction:column;
-    height: 100vh;
+    flex-direction: column;
+    height: auto;
     align-content: center;
     background: -webkit-linear-gradient(top, #09203f 10%, #09cedc 60%);
     background: -o-linear-gradient(top, #09203f 0%, #09cedc 100%);
     background: linear-gradient(top, #09203f 0%, #09cedc 100%);
 }
 
-.wrapperSignup{
+.wrapperSignup {
     display: flex;
     height: 420px;
     width: 800px;
     align-content: center;
-    margin-top: 150px;
-    margin-left: 350px;
+    top: 5rem;
     border-radius: 10px;
+    position: relative;
 }
 
 .signupPart {
     background-color: black;
     display: flex;
     flex-direction: column;
-    padding: 20px 80px 20px 80px ;
+    padding: 20px 80px 20px 80px;
     border-radius: 20px;
 
 }
@@ -31,7 +31,7 @@ body {
 .signupPart h1 {
     color: whitesmoke;
     margin-top: 10px;
-    margin-left:13px;
+    margin-left: 13px;
     font-size: 30px;
     font-weight: bolder;
 }
@@ -85,7 +85,7 @@ body {
     background: linear-gradient(45deg, #0e417a, #7b51c4, #11bede, #f3f5f5, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
     position: absolute;
     top: -2px;
-    left:-2px;
+    left: -2px;
     background-size: 400%;
     z-index: -1;
     filter: blur(5px);
@@ -110,7 +110,13 @@ body {
 }
 
 @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
 }

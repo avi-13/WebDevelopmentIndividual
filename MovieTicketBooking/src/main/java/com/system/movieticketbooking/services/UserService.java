@@ -9,7 +9,7 @@ public interface UserService {
 
     User fetchById(Integer id);
 
-    String saveUser(UserPojo userPojo);
+    UserPojo saveUser(UserPojo userPojo);
 
     void deleteById(Integer id);
 
