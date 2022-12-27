@@ -36,7 +36,7 @@ public class SpringSecurityConfig {
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/home/**", "/user/**", "/movie/**", "/seat/**")
+                .requestMatchers("/home/**", "/user/**", "/movie/**", "/book/**", "/pay/**")
                 .permitAll()
                 .requestMatchers("/admin/**")
                 .hasAuthority("Admin")

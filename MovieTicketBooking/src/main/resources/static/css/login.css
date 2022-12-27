@@ -1,3 +1,7 @@
+* {
+    font-family: math;
+}
+
 body {
     display: flex;
     align-items: center;
@@ -12,7 +16,7 @@ body {
     height: 10%;
     width: 80%;
     display: flex;
-    margin-top: 6%;
+    margin-top: 10em;
 }
 
 .imagePart {
@@ -31,8 +35,16 @@ body {
     margin: 10px 10px 48px 10px;
 }
 
-.signInPart .container span {
-    margin: 0 0 0 270px;
+.signInPart .container .signLabel {
+    position: relative;
+    color: whitesmoke;
+    left: 45%;
+}
+.signInPart .container .forgetPass {
+    top: 2rem;
+    color: whitesmoke;
+    position: relative;
+    left: 20%;
 }
 
 .imagePart img {
@@ -111,8 +123,8 @@ body {
 .signInPart .login-form form button {
     background: linear-gradient(to top, #09203f 0%, #09cedc 100%);
     cursor: pointer;
-    margin-top: 40px;
-    margin-left: 159px;
+    margin-top: 10%;
+    margin-left: 30%;
     width: 201px;
     height: 48px;
     text-transform: uppercase;
@@ -278,7 +290,7 @@ body {
     }
 
     .signInPart .container .login-form {
-        margin-top: 90px;
+        margin-top: 20px;
     }
 
     .signInPart .container .login-form form input {
@@ -287,7 +299,7 @@ body {
 
     .signInPart .container .login-form form button[type=submit] {
         height: 45px;
-        margin-top: 100px;
+        /*margin-top: 100px;*/
     }
 
     .signInPart .container .login-form .remember-form {
@@ -337,4 +349,11 @@ body {
     .forget-pass a:hover::after {
         opacity: 1;
     }
+
 }
+
+/*@media screen and (max-width: 800px) {*/
+/*    .signInPart .container .login-form {*/
+/*        margin-top: 10px;*/
+/*    }*/
+/*}*/

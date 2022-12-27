@@ -1,3 +1,7 @@
+*{
+    font-family: math;
+}
+
 .amlMainClass {
     border: black solid 2px;
     display: flex;

@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Date;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -33,9 +34,16 @@ public class MoviePojo {
 
     private Integer shows;
 
+    private LocalTime showTime1;
+
+    private LocalTime show2;
+    private LocalTime show3;
+    private LocalTime show4;
+
     private String cubes;
 
     private MultipartFile image;
+
     private MultipartFile image1;
 
     public MoviePojo(Movie movie) {
@@ -46,8 +54,13 @@ public class MoviePojo {
         this.director = movie.getDirector();
         this.genre = movie.getGenre();
         this.releaseDate = movie.getReleaseDate();
+        this.showTime1=movie.getShowTime1();
+        this.show2=movie.getShow2();
+        this.show3=movie.getShow3();
+        this.show4=movie.getShow4();
         this.duration = movie.getDirector();
         this.cubes = movie.getCubes();
+
         this.shows = movie.getShows();
     }
 }

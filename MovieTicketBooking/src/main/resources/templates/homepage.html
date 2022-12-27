@@ -3,16 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link crossorigin="anonymous"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet"/>
+
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/dded80a5ca.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet"/>
+    <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" th:href="@{~/css/header.css}">
     <link rel="stylesheet" th:href="@{~/css/footer.css}">
     <link rel="stylesheet" th:href="@{~/css/homepage.css}">
 </head>
 <body>
 <div th:replace="~{fragments/header.html :: header}"></div>
+
 <div class="homeMainClass">
-    <div class="imageBanner">
+    <div class="swiper">
+        <div class="swiper-wrapper" >
+            <div class="swiper-slide" th:each="imageCover:${imageBanner}">
+                <img alt="" th:src="'data:image/png;base64,'+${imageCover.image1Base64}">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+
     </div>
     <div class="movies">
         <div>
@@ -22,9 +42,9 @@
             <div class="autoMovies" th:each="nowshowing:${movie}">
                 <img class="movieImg" th:src="'data:image/png;base64,'+${nowshowing.imageBase64}">
 
-                <a href="/" class="btn1">BookNow</a>
+                <a class="btn1" href="/">BookNow</a>
 
-                <a th:href="@{~/movie/}+${nowshowing.id}" class="btn2">SeeDetails</a>
+                <a class="btn2" th:href="@{~/movie/}+${nowshowing.id}">SeeDetails</a>
 
             </div>
         </div>
@@ -36,9 +56,9 @@
             <div class="autoMovies" th:each="nextChange:${nextChange}">
                 <img class="movieImg" th:src="'data:image/png;base64,'+${nextChange.imageBase64}">
 
-                <a href="/" class="btn1">BookNow</a>
+                <a class="btn1" href="/">BookNow</a>
 
-                <a th:href="@{~/movie/}+${nextChange.id}" class="btn2">SeeDetails</a>
+                <a class="btn2" th:href="@{~/movie/}+${nextChange.id}">SeeDetails</a>
 
             </div>
         </div>
@@ -50,9 +70,9 @@
             <div class="autoMovies" th:each="comingSoon:${comingSoon}">
                 <img class="movieImg" th:src="'data:image/png;base64,'+${comingSoon.imageBase64}">
 
-                <a href="/" class="btn1">BookNow</a>
+                <a class="btn1" href="/">BookNow</a>
 
-                <a th:href="@{~/movie/}+${comingSoon.id}" class="btn2">SeeDetails</a>
+                <a class="btn2" th:href="@{~/movie/}+${comingSoon.id}">SeeDetails</a>
 
             </div>
         </div>
@@ -60,10 +80,27 @@
 </div>
 <div th:replace="~{fragments/footer.html :: footer}"></div>
 
-<script type="text/javascript">
-    $(".menu-toggle-btn").click(function () {
-        $(this).toggleClass("fa-times");
-        $(".navigation-menu").toggleClass("active");
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<script>
+    const swiper = new Swiper('.swiper', {
+        autoplay: {
+            delay: 10000,
+            disableOnInteraction: false
+        },
+        loop: true,
+
+
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
     });
 </script>
 </body>

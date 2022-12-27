@@ -1,0 +1,9 @@
+*{
+    font-family: math;
+}
+
+.bookingTable {
+    width: 92rem;
+    position: relative;
+    height: 60rem;
+}

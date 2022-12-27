@@ -1,3 +1,7 @@
+*{
+    font-family: math;
+}
+
 .mainClass {
     margin: 100px 100px 100px 100px;
     height: 100vh;

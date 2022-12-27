@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HomePage</title>
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+<script src="https://kit.fontawesome.com/dded80a5ca.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+<link rel="stylesheet" th:href="@{~/css/header.css}">
+<link rel="stylesheet" th:href="@{~/css/footer.css}">
+<link rel="stylesheet" th:href="@{~/css/homepage.css}">
+</head>
+<body>
+<div th:replace="~{fragments/header.html :: header}"></div>
+<div class="wrapper">
+  <div class="checkout_wrapper">
+    <div class="product_info">
+      <p>
+        Make your Payment
+      </p>
+    </div>
+    <div class="checkout_form">
+      <p>Payment Section</p>
+      <div class="details">
+        <div class="section">
+          <input type="text" placeholder="Card Number">
+        </div>
+        <div class="section">
+          <input type="text" placeholder="Cardholder Name">
+        </div>
+        <div class="section last_section">
+          <div class="item">
+            <input type="text" placeholder="Expiry Date">
+          </div>
+        </div>
+
+        <div class="btn">
+          <a href="#">Pay</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{fragments/footer.html :: footer}"></div>
+
+</body>
+
+
+</html>

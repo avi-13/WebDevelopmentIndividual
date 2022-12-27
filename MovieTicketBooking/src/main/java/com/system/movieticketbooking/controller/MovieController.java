@@ -1,7 +1,9 @@
 package com.system.movieticketbooking.controller;
 
 import com.system.movieticketbooking.entity.Movie;
+import com.system.movieticketbooking.pojo.BookingPojo;
 import com.system.movieticketbooking.pojo.MoviePojo;
+import com.system.movieticketbooking.services.BookingService;
 import com.system.movieticketbooking.services.MovieService;
 import com.system.movieticketbooking.services.UserService;
 import com.system.movieticketbooking.services.impl.MovieServiceImpl;
@@ -28,6 +30,7 @@ import java.util.Map;
 @RequestMapping("/movie")
 public class MovieController {
     private final MovieService movieService;
+    private final BookingService bookingService;
     private final UserService userService;
     private final MovieServiceImpl movieServiceImpl;
 
@@ -43,7 +46,7 @@ public class MovieController {
         Map<String, String> requestError = validateRequest(bindingResult);
         if (requestError != null) {
             redirectAttributes.addFlashAttribute("requestError", requestError);
-            return "redirect:/movie/addMovie";
+            return "redirect:/home/homepage";
         }
 
         movieService.saveMovie(moviePojo);
@@ -69,22 +72,23 @@ public class MovieController {
     }
 
     @GetMapping("/movieList")
-    public String getNowShowing(Model model, Principal principal) {
-        model.addAttribute("userdata", userService.findByEmail(principal.getName()));
+    public String getHomePage(Model model, Principal principal) {
+        if (principal != null) {
+            model.addAttribute("userdata", userService.findByEmail(principal.getName()));
+        }
+        List <Movie> allMovie=movieService.fetchAll();
+
         Map<String, List<Movie>> allMovies = movieService.getMovieList();
+
+        model.addAttribute("imageBanner", allMovie.stream().map(movies ->
+                        Movie.builder()
+                                .id(movies.getId())
+                                .image1Base64(movieServiceImpl.getImageBase64(movies.getImage1()))
+                                .build()));
+
         model.addAttribute("movie", allMovies.get("nowShowing").stream().map(movie ->
                 Movie.builder()
                         .id(movie.getId())
-                        .movieName(movie.getMovieName())
-                        .movieDescription(movie.getMovieDescription())
-                        .director(movie.getDirector())
-                        .cast(movie.getCast())
-                        .shows(movie.getShows())
-                        .releaseDate(movie.getReleaseDate())
-                        .duration(movie.getDuration())
-                        .cubes(movie.getCubes())
-                        .genre(movie.getGenre())
-                        .shows(movie.getShows())
                         .imageBase64(movieServiceImpl.getImageBase64(movie.getImage()))
                         .image1Base64(movieServiceImpl.getImageBase64(movie.getImage1()))
                         .build()
@@ -92,16 +96,6 @@ public class MovieController {
         model.addAttribute("nextChange", allMovies.get("nextChange").stream().map(nextChange ->
                 Movie.builder()
                         .id(nextChange.getId())
-                        .movieName(nextChange.getMovieName())
-                        .movieDescription(nextChange.getMovieDescription())
-                        .director(nextChange.getDirector())
-                        .cast(nextChange.getCast())
-                        .shows(nextChange.getShows())
-                        .releaseDate(nextChange.getReleaseDate())
-                        .duration(nextChange.getDuration())
-                        .cubes(nextChange.getCubes())
-                        .genre(nextChange.getGenre())
-                        .shows(nextChange.getShows())
                         .imageBase64(movieServiceImpl.getImageBase64(nextChange.getImage()))
                         .image1Base64(movieServiceImpl.getImageBase64(nextChange.getImage1()))
                         .build()
@@ -109,16 +103,6 @@ public class MovieController {
         model.addAttribute("comingSoon", allMovies.get("comingSoon").stream().map(comingSoon ->
                 Movie.builder()
                         .id(comingSoon.getId())
-                        .movieName(comingSoon.getMovieName())
-                        .movieDescription(comingSoon.getMovieDescription())
-                        .director(comingSoon.getDirector())
-                        .cast(comingSoon.getCast())
-                        .shows(comingSoon.getShows())
-                        .releaseDate(comingSoon.getReleaseDate())
-                        .duration(comingSoon.getDuration())
-                        .cubes(comingSoon.getCubes())
-                        .genre(comingSoon.getGenre())
-                        .shows(comingSoon.getShows())
                         .imageBase64(movieServiceImpl.getImageBase64(comingSoon.getImage()))
                         .image1Base64(movieServiceImpl.getImageBase64(comingSoon.getImage1()))
                         .build()
@@ -129,9 +113,26 @@ public class MovieController {
     @GetMapping("/{id}")
     public String fetchById(@PathVariable Integer id, Model model, Principal principal) {
         Movie movie = movieService.fetchById(id);
-        model.addAttribute("userdata", userService.findByEmail(principal.getName()));
+        if (principal != null) {
+            model.addAttribute("userdata", userService.findByEmail(principal.getName()));
+        }
         model.addAttribute("movie", new MoviePojo(movie));
         model.addAttribute("mov", movie);
+        model.addAttribute("saveBooking",new BookingPojo());
         return "movieDetails";
     }
+
+    @GetMapping("/book/{id}")
+    public String bookingPage(@PathVariable Integer id, Model model, Principal principal) {
+        Movie movie = movieService.fetchById(id);
+        if (principal != null) {
+            model.addAttribute("userdata", userService.findByEmail(principal.getName()));
+        }
+        model.addAttribute("movie", new MoviePojo(movie));
+        model.addAttribute("mov", movie);
+        model.addAttribute("saveBooking",new BookingPojo());
+        return "BookingPage";
+    }
+
+
 }

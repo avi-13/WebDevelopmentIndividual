@@ -1,3 +1,7 @@
+*{
+    font-family: math;
+}
+
 body {
     display: flex;
     /* align-items: center; */

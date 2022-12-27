@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UserProfile</title>
     <link rel="stylesheet" th:href="@{~/css/userProfile.css}">
-    <link rel="stylesheet" th:href="@{~/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{~/css/header.css}">
     <link rel="stylesheet" th:href="@{~/css/footer.css}">
 </head>
 
 
 <body>
 
-<div th:replace="~{fragments/navbar.html :: header}"></div>
+<div th:replace="~{fragments/header.html :: header}"></div>
 
 <form th:method="post" th:action="@{/user/save}" th:object="${currentUser}">
 
@@ -39,7 +39,7 @@
 
         <div class="userName">
             UserName<br>
-            <input class="info" type="text" th:field="*{username}" th:value="${currentUser.getUsername()}">
+            <input class="info" type="text" th:field="*{username}" th:value="${users.getUsername()}">
         </div>
 
         <div class="email">

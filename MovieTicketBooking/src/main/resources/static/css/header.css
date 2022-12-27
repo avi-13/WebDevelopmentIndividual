@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    font-family: "Open Sans", sans-serif;
+    font-family: math;
 }
 
 header {
@@ -50,11 +50,8 @@ header {
 }
 
 h4 {
-    margin-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    color: white;
-    display: flex;
+    color: whitesmoke;
+    width: 0;
 }
 
 .profile-div:hover {
@@ -84,7 +81,7 @@ h4 {
     display: flex;
     align-items: center;
     min-height: 90px;
-    margin: 0 8% 0 0;
+    margin: 0 15.5% 0 0;
 }
 
 .navigation-menu a {
@@ -98,6 +95,12 @@ h4 {
 }
 
 .navigation-menu a:hover {
+    background: #fff;
+    color: #2f3640;
+    transform: scale(1.1);
+}
+
+.navigation-menu a:hover h4{
     background: #fff;
     color: #2f3640;
     transform: scale(1.1);
@@ -129,7 +132,7 @@ h4 {
 }
 
 .menu-toggle-btn {
-    margin: 0 0 0 38%;
+    margin: 0 0 0 64%;
     float: right;
     height: 90px;
     line-height: 90px !important;
@@ -140,7 +143,7 @@ h4 {
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     .menu-toggle-btn {
         display: block !important;
     }

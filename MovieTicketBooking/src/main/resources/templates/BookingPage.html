@@ -3,31 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Booking Page</title>
-    <link rel="stylesheet" href="../static/css/Booking.css">
+    <link rel="stylesheet" th:href="@{~/css/Booking.css}">
 </head>
 <body>
-<form>
-    <div class="bContainer">
-        <form>
-        <input class="i1" placeholder="Movie Name" >
-        <input class="i2" type="number" placeholder="No. of Ticket">
-            <select name="Time" required>
-                <option value="Time">Time</option>
-                <option value="04:30 AM">07:30 AM</option>
-                <option value="11:30 AM">11:30 AM</option>
-                <option value="03:30 PM">03:30 PM</option>
-            </select>
-        <input class="i4" placeholder="Price" >
-        <select name="Queue ">
-            <option value="queue">Queue</option>
-            <option value="Queue 1">Queue 1</option>
-            <option value="Queue 2">Queue 2</option>
-            <option value="Queue 3">Queue 3</option>
-        </select>
-        <input class="i6" >
-        <button class="b1" type="submit"> Book Ticket</button>
+<div class="center modal-box">
+
+    <div class="form_container">
+        <h1 th:text="${mov.movieName}"></h1>
+        <form enctype="multipart/form-data" style=" position: relative; " th:action="@{/book/save}"
+              th:method="post" th:object="${saveBooking}">
+
+            <!--            <input hidden="hidden" name="pid" th:value="${saveBooking.bookingId}" type="text">-->
+            <!--            <input   name="bookingId" type="text">-->
+            <input hidden name="movie" th:value="${movie.movieId}" type="text">
+            <input hidden name="user" th:value="${userdata.id}" type="text">
+
+
+            <div class="form_wrap">
+                <div class="form_item">
+                    <label>Email Address</label>
+                    <input disabled th:value="${userdata.getEmail()}" type="text">
+                </div>
+            </div>
+            <div class="form_wrap form_grp">
+                <div class="form_item">
+                    <label>No. Of Tickets</label>
+                    <input min="0"
+                           onkeypress="return (event.charCode !==8 && event.charCode ===0 || (event.charCode >= 48 && event.charCode <= 57))"
+                           th:field="${saveBooking.noOfTickets}"
+                           type="number">
+
+                </div>
+                <div class="form_item">
+                    <label>Show Date</label>
+                    <input th:field="${saveBooking.showDate}" type="date">
+
+                </div>
+            </div>
+            <div class="form_wrap">
+                <div class="form_item">
+                    <label>Show Time</label>
+                    <select th:field="${saveBooking.showTime}" th:value="${mov.showTime1}">
+                        <option value="04:30 AM">07:30:00</option>
+                        <option value="11:30 AM">11:30:00</option>
+                        <option value="03:30 PM">03:30:00</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form_wrap">
+                <div class="form_item">
+                    <label>Queue</label>
+                    <select th:field="${saveBooking.queue}">
+                        <option value="null">Queue</option>
+                        <option value="1">Queue 1</option>
+                        <option value="2">Queue 2</option>
+                        <option value="3">Queue 3</option>
+                    </select>
+                </div>
+            </div>
+            <button class="booksBtn" type="submit"> Confirm Booking</button>
         </form>
     </div>
-</form>
+</div>
 </body>
 </html>

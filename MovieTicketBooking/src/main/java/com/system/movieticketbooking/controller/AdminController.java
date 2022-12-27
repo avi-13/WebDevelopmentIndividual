@@ -1,7 +1,9 @@
 package com.system.movieticketbooking.controller;
 
+import com.system.movieticketbooking.entity.Contact;
 import com.system.movieticketbooking.entity.Movie;
 import com.system.movieticketbooking.pojo.MoviePojo;
+import com.system.movieticketbooking.services.ContactService;
 import com.system.movieticketbooking.services.MovieService;
 import com.system.movieticketbooking.services.UserService;
 import com.system.movieticketbooking.services.impl.MovieServiceImpl;
@@ -21,6 +23,7 @@ import java.util.List;
 public class AdminController {
     private final MovieServiceImpl movieServiceImpl;
     private final MovieService movieService;
+    private final ContactService contactService;
     private final UserService userService;
 
     @GetMapping("/movieList")
@@ -69,5 +72,11 @@ public class AdminController {
         return "redirect:/admin/movieList";
     }
 
+    @GetMapping("/feedback")
+    public String feedbackPage(Model model){
+        List <Contact> contact = contactService.fetchAll();
+        model.addAttribute("contacts" , contact);
+        return "UserFeedback";
+    }
 
 }

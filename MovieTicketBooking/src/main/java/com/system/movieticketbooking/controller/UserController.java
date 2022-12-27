@@ -1,7 +1,9 @@
 package com.system.movieticketbooking.controller;
 
 import com.system.movieticketbooking.entity.User;
+import com.system.movieticketbooking.pojo.ContactPojo;
 import com.system.movieticketbooking.pojo.UserPojo;
+import com.system.movieticketbooking.services.ContactService;
 import com.system.movieticketbooking.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,8 @@ import java.security.Principal;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
+
+    private final ContactService contactService;
 //    private final ValidationAutoConfiguration validationAutoConfiguration;
 
 
@@ -85,5 +89,18 @@ public class UserController {
         return "redirect:/login";
     }
 
+
+    @GetMapping("/contactus")
+    public String contact(Model model) {
+        model.addAttribute("contact", new ContactPojo());
+        return "ContactUs";
+    }
+
+
+    @PostMapping("/savecontact")
+    public String save(@Valid ContactPojo contactPojo) {
+        contactService.save(contactPojo);
+        return "redirect:/home/homepage";
+    }
 
 }

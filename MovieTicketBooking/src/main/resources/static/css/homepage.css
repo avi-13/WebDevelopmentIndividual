@@ -1,10 +1,32 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: math;
 }
 
 body {
     background: -webkit-linear-gradient(top, #09203f 10%, #09cedc 60%);
+}
+
+.swiper{
+    z-index: 0;
+    height: 600px;
+    object-fit: contain;
+    width: 85%;
+    margin: 10em 8.1% 2%;
+}
+.swiper-slide{
+    width: 100%;;
+    object-fit: fill
+
+}
+.swiper-slide img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+.swiper .swiper-button-prev, .swiper .swiper-button-next{
+    color: aqua;
 }
 
 .homeMainClass {
@@ -14,24 +36,15 @@ body {
     width: 99%;
 }
 
-.imageBanner {
-    height: 600px;
-    background: url("../images/johnwickbg.jpg") no-repeat center center;
-    object-fit: contain;
-    width: 85%;
-    margin: 2% 8.1% 2%;
-}
-
 .movies {
     display: flex;
     flex-direction: column;
-    border: solid greenyellow;
+    /*border: solid greenyellow;*/
 }
 
 .nowShowing {
     display: flex;
     flex-wrap: wrap;
-    border: solid royalblue;
     height: 100%;
     width: 100%;
     padding: 1% 0 0 3%;
@@ -40,7 +53,7 @@ body {
 .nextChange {
     display: flex;
     flex-wrap: wrap;
-    border: solid #e8dd09;
+    /*border: solid #e8dd09;*/
     height: 100%;
     width: 100%;
     padding: 1% 0 0 3%;
@@ -49,14 +62,12 @@ body {
 .comingSoon {
     display: flex;
     flex-wrap: wrap;
-    border: solid #e8dd09;
     height: 100%;
     width: 100%;
     padding: 1% 0 0 3%;
 }
 
 .autoMovies {
-    background: black;
     display: flex;
     flex-direction: row;
     margin: 1% 1% 1% 1%;
@@ -146,14 +157,18 @@ body {
 
 .nextChange {
     display: flex;
-    border: solid yellow;
     height: 100%;
     width: 100%;
 }
 
 .comingSoon {
     display: flex;
-    border: solid teal;
     height: 100%;
     width: 100%;
 }
+
+/*@media screen and (min-width: 200px) and (max-width: 800px) {    .swiper{*/
+/*        z-index: 0;*/
+/*        margin: 10% 8.1% 2%;*/
+/*    }*/
+/*}*/

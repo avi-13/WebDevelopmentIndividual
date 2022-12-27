@@ -2,17 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Forget Password</title>
 </head>
 
 <body>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="form-gap"></div>
 <div class="container">
     <div class="row">
@@ -26,11 +26,11 @@
                         <div class="form-holder">
                             <div class="form-content">
                                 <div class="form-items">
-                                    <form th:method="post" th:action="@{/user/changepassword}" th:object="${users}">
-                                        <input class="form-control" type="text" name="email"
-                                               placeholder="E-mail Address" required th:field="*{email}">
+                                    <form th:action="@{/user/changepassword}" th:method="post" th:object="${users}">
+                                        <input class="form-control" name="email" placeholder="E-mail Address"
+                                               required th:field="*{email}" type="text">
                                         <div class="form-button full-width">
-                                            <button type="submit" class="btn btn-lg btn-primary btn-block mt-3">Send
+                                            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Send
                                                 Reset Link
                                             </button>
                                         </div>
@@ -44,7 +44,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 </body>
 </html>

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.time.LocalTime;
 
 @Builder
 @Getter
@@ -41,6 +42,11 @@ public class Movie {
 
     @Column(name = "cube")
     private String cubes;
+
+    private LocalTime showTime1;
+    private LocalTime show2;
+    private LocalTime show3;
+    private LocalTime show4;
 
     @Column(name = "shows")
     private Integer shows;

@@ -1,42 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/dded80a5ca.js"></script>
+    <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>MovieDetails</title>
-    <link rel="stylesheet" th:href="@{~/css/navbar.css}">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link crossorigin="anonymous"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/dded80a5ca.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" th:href="@{~/css/header.css}">
     <link rel="stylesheet" th:href="@{~/css/footer.css}">
     <link rel="stylesheet" th:href="@{~/css/movieDetails.css}">
+
 </head>
 <body>
-<div th:replace="~{fragments/navbar.html :: header}"></div>
+<div th:replace="~{fragments/header.html :: header}"></div>
 <div class="mdMainClass">
     <h1>Movie Details</h1>
     <div class="mdDetailsWrapper">
         <div class="mdImagePart">
             <img class="img" th:src="'data:image/png;base64,'+${mov.imageBase64}"/>
         </div>
-        <form class="mdDetailsPart">
+        <div class="mdDetailsPart">
             <b><h1 class="mdTitle" th:text="${mov.movieName}"></h1></b>
             <h2 class="mdGenre" th:text="${mov.genre}"></h2>
             <h6 class="mdDesc" th:text="${mov.movieDescription}"></h6>
             <h2>Director: <span class="mdDir" th:text="${mov.director}"></span></h2>
             <h2>Cast: <span class="mdCast" th:text="${mov.cast}"></span></h2>
             <h2>Release On: <span class="mdRel" th:text="${mov.releaseDate}"></span></h2>
-            <h2>Duration: <span class="mdDir" th:text="${mov.duration}"></span> minutes</h2>
-        </form>
-
+            <h2>Duration: <span class="mdDur" th:text="${mov.duration}"></span> minutes</h2>
+            <!--            <div th:each="i : ${#numbers.sequence(1, cubes)}">-->
+            <!--&lt;!&ndash;                <label for="'myTextField' + ${i}">Text Field #[[${i}]]:</label>&ndash;&gt;-->
+            <!--                <input type="text" th:field="'*{mov.shows}+${i}'" id="'myTextField' + ${i}" name="'myTextField' + ${i}" />-->
+            <!--            </div>-->
+        </div>
     </div>
-
-    <!--  <div class="trailer">-->
-    <!--    <h3>Trailer</h3>-->
-    <!--&lt;!&ndash;    <iframe width="560" height="315" src="https://www.youtube.com/embed/5PSNL1qE6VY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>&ndash;&gt;-->
-    <!--    <a class="bookTkt" th:href="@{~/book/bookingPage}"><button class="bkTicket" >BOOK TICKET</button> </a>-->
-    <!--  </div>-->
-
+    <a th:href="@{~/movie/book/}+${mov.id}" class="books">Book Ticket Now</a>
 </div>
 
 <div th:replace="~{fragments/footer.html :: footer}"></div>
+
 </body>
 </html>

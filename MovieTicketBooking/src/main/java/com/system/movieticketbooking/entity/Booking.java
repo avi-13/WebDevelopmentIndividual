@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
-import java.sql.Time;
+import java.time.LocalTime;
 
 @Builder
 @Getter
@@ -15,24 +15,25 @@ import java.sql.Time;
 @Table(name = "booking")
 public class Booking {
     @Id
-    @SequenceGenerator(name = "mtb_booking_seq_gen", sequenceName = "mtb_booking_id_seq", allocationSize = 1)
-    @GeneratedValue(generator = "mtb_booking_seq_gen", strategy = GenerationType.SEQUENCE)
-    private Integer bookingId;
+    @SequenceGenerator(name = "mtb_user_seq_gen", sequenceName = "mtb_user_id_seq", allocationSize = 1)
+    @GeneratedValue(generator = "mtb_user_seq_gen", strategy = GenerationType.SEQUENCE)
+    private Integer bId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "FK_User_Id"))
-    private User user;
+    private User userId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "movie_id", referencedColumnName = "Id",
+    @JoinColumn(name = "movie_id", referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "FK_Product_Id"))
-    private Movie movie;
+    private Movie movieId;
 
     private Date showDate;
 
-    private Time showTime;
+    private Integer Ticket;
 
+    private LocalTime showTime;
 
     private String queue;
 

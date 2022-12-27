@@ -36,6 +36,10 @@ public class MovieServiceImpl implements MovieService {
         movie.setReleaseDate(moviePojo.getReleaseDate());
         movie.setGenre(moviePojo.getGenre());
         movie.setCubes(moviePojo.getCubes());
+        movie.setShowTime1(moviePojo.getShowTime1());
+        movie.setShow2(movie.getShow2());
+        movie.setShow3(movie.getShow3());
+        movie.setShow4(movie.getShow4());
         movie.setShows(moviePojo.getShows());
 
         if (moviePojo.getImage() != null && moviePojo.getImage1() != null) {

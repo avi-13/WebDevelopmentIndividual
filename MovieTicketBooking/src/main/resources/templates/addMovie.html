@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <title>Admin Panel</title>
     <link rel="stylesheet" th:href="@{~/css/addMovies.css}">
-    <link rel="stylesheet" th:href="@{~/css/adminPanel.css}" >
+    <link rel="stylesheet" th:href="@{~/css/adminPanel.css}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
           rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -32,7 +34,7 @@
 <div class="container">
     <aside>
         <div class="sidebar">
-            <a th:href="@{~/admin/movieList}" >
+            <a th:href="@{~/admin/movieList}">
                 <span class="fa-solid fa-film"></span>
                 <h3>Dashboard</h3>
             </a>
@@ -40,11 +42,11 @@
                 <span class="fa-solid fa-square-plus"></span>
                 <h3>Add Movie</h3>
             </a>
-            <a href="">
-                <span class="fa-brands fa-hire-a-helper"></span>
-                <h3>Help</h3>
+            <a th:href="@{/admin/feedback}">
+                <span class="fa-solid fa-message-lines"></span>
+                <h3>Customer Feedback</h3>
             </a>
-            <a th:href="@{~/booking/list}">
+            <a th:href="@{~/book/bookingList}">
                 <span class="fa-solid fa-rectangle-list"></span>
                 <h3>Booking List</h3>
             </a>
@@ -68,41 +70,52 @@
 
                 <div class="left-side">
 
-                    <input class="field" type="text" hidden placeholder="UserId..."  th:field="*{movieId}"  />
+                    <input class="field" type="text" hidden placeholder="UserId..." th:field="*{movieId}"/>
 
-                    <input type="text" placeholder="MovieTitle" required th:field="*{movieName}" />
+                    <input type="text" placeholder="MovieTitle" required th:field="*{movieName}"/>
 
-                    <input type="text" placeholder="MovieDirector" required th:field="*{director}"  />
+                    <input type="text" placeholder="MovieDirector" required th:field="*{director}"/>
 
-                    <input type="text" placeholder="Cast" required th:field="*{cast}"    />
+                    <input type="text" placeholder="Cast" required th:field="*{cast}"/>
 
-                    <input type="text" placeholder="Genre" required th:field="*{genre}"  />
+                    <input type="text" placeholder="Genre" required th:field="*{genre}"/>
 
-                    <input type="text" placeholder="Duration" required th:field="*{duration}"    />
+                    <input type="text" placeholder="Duration" required th:field="*{duration}"/>
 
-                    <input placeholder="No.of Shows" required th:field="*{shows}"  />
+                    <input placeholder="No. of Shows" required th:field="*{shows}"/>
 
-                    <select name="cubes " id="cubes" th:field="*{cubes}" >
+                    <input type="time" required th:field="*{showTime1}"/>
+
+                    <input type="time" required th:field="*{showTime1}"/>
+
+                    <input type="time" required th:field="*{showTime1}"/>
+
+                    <input type="time" required th:field="*{showTime1}"/>
+
+                    <select name="cubes " id="cubes" th:field="*{cubes}">
                         <option value="cubes">Cubes</option>
                         <option value="Cube 1">Cube 1</option>
                         <option value="Cube 2">Cube 2</option>
                         <option value="Cube 3">Cube 3</option>
                     </select>
 
-                    <input type="date" required th:field="*{releaseDate}"   />
+                    <input type="date" required th:field="*{releaseDate}"/>
 
-                    <textarea rows="10" cols="100" placeholder="MovieDescription" required th:field="*{movieDescription}"  > </textarea>
+                    <textarea rows="10" cols="100" placeholder="MovieDescription" required
+                              th:field="*{movieDescription}"> </textarea>
 
                 </div>
 
                 <div class="moviePic">
-                    <img class="img" alt="moviePic" th:src="@{/images/upload.png}" id="movieImage" >
-                    <input id="img" hidden th:field="*{image}" accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile()">
+                    <img class="img" alt="moviePic" th:src="@{/images/upload.png}" id="movieImage">
+                    <input id="img" hidden th:field="*{image}" accept="image/jpeg, image/png, image/jpg" type="file"
+                           onchange="previewFile()">
                 </div>
 
                 <div class="moviePic1">
-                    <img class="img1" alt="moviePic1" th:src="@{/images/uploadcover.png}" id="movieImage1" >
-                    <input id="img1" hidden th:field="*{image1}" accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile1()">
+                    <img class="img1" alt="moviePic1" th:src="@{/images/uploadcover.png}" id="movieImage1">
+                    <input id="img1" hidden th:field="*{image1}" accept="image/jpeg, image/png, image/jpg" type="file"
+                           onchange="previewFile1()">
                 </div>
 
                 <div class="addMovieBtn">
