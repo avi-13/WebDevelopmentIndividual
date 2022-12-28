@@ -28,17 +28,12 @@
 }
 
 .modal-box {
-    top: 40%;
     height: auto;
     width: 91%;
     border-radius: 5px;
     box-shadow: 0 0 62px rgb(0 0 0);
 }
 
-/*.start-btn.show-modal{*/
-/*    opacity: 0;*/
-/*    visibility: hidden;*/
-/*}*/
 .modal-box.show-modal {
     top: 38%;
     width: 70%;
@@ -52,8 +47,8 @@
     background: whitesmoke;
     position: relative;
     color: black;
-    padding: 2% 5% 2% 5%;
-    left: 5em;
+    padding: 1% 5% 1% 5%;
+    left: 42%;
     border: black solid 2px;
     cursor: pointer;
 }

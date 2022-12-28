@@ -40,7 +40,7 @@ public class BookingController {
         bookingService.saveBooking(bookingPojo);
         redirectAttributes.addFlashAttribute("successMsg", "User saved successfully");
 
-        return "redirect:/pay/{id}";
+        return "redirect:/pay/payment";
     }
 
     public Map<String, String> validateRequest(BindingResult bindingResult) {

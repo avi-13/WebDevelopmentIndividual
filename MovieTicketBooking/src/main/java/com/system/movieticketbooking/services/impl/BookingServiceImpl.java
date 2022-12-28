@@ -45,4 +45,9 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepo.findById(id).orElseThrow(()-> new RuntimeException("CouldNot Find"));
 
     }
+
+    @Override
+    public List<Booking> findBookingById(Integer id) {
+        return (bookingRepo.findBookingById(id));
+    }
 }

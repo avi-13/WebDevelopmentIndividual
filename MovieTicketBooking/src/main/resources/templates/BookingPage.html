@@ -36,7 +36,7 @@
                 </div>
                 <div class="form_item">
                     <label>Show Date</label>
-                    <input th:field="${saveBooking.showDate}" type="date">
+                    <input id="sDate" th:field="${saveBooking.showDate}" type="date">
 
                 </div>
             </div>
@@ -65,5 +65,16 @@
         </form>
     </div>
 </div>
+<script>
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+
+    const minDate = yyyy + '-' + mm + '-' + dd;
+
+    document.querySelector("#sDate").min = minDate;
+    // document.querySelector("#sDate").min = minDate;
+</script>
 </body>
 </html>

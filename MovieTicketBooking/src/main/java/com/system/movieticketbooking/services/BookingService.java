@@ -12,4 +12,7 @@ public interface BookingService {
     List<Booking> fetchAll();
 
     Booking fetchById(Integer id);
+
+    List<Booking> findBookingById(Integer id);
+
 }
