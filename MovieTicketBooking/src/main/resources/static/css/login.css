@@ -1,0 +1,425 @@
+body {
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+  background: -webkit-linear-gradient(top, #09203f 0%, #09cedc 100%);
+  background: -o-linear-gradient(top, #09203f 0%, #09cedc 100%);
+  background: linear-gradient(to top, #09203f 0%, #09cedc 100%);
+  font-family: Montserrat;
+  overflow-x: hidden;
+}
+
+header{
+  background-attachment: fixed;
+}
+
+
+.head{
+  display: flex;
+  background-color: #070f20; 
+  position: fixed;
+  top: 0; 
+  left:0; 
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.head .btn{
+  background-color: #070f20;
+  height: 50px;
+  cursor: pointer;
+  transition: all 175ms ease-in-out;
+  flex: 1;
+  margin-left: 40px;
+}
+
+.head .btn:hover{
+  scale: 1.1;
+}
+
+/* 1. i.*/
+.head .logo-div .logo{
+  margin-top: 2px;
+  height: 50px;
+  margin-left: -34px;
+  flex: 1;
+}
+
+.head .navbaritems #headIcon{
+  display: inline;
+  color: azure;
+  background-color: aqua;
+}
+
+
+.head .profile{
+  align-items: center;
+  justify-content: center;
+  flex: 1.5; 
+  padding-right: 2%;
+}
+
+.head .profile .profile:hover{
+  scale: 1.1;
+}
+
+.navbaritems{
+  display: flex;
+  flex: 9;
+}
+
+ul {
+  flex: 1;
+  width: 60%;
+  text-align:center;
+}
+ul li {
+  display: inline-block;
+  transition: all 0.5s ease;
+  text-align: center;
+  cursor: pointer;
+  padding: 1%;
+  height: 20px;
+  overflow: hidden;
+}
+ul li:hover {
+  scale: 1.25;
+}
+
+ul li a {
+  text-decoration:double;
+  font-size: 25px;
+  color: white;
+}
+ul li a:active,
+:focus {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+*:focus {
+  outline: none;
+}
+
+.wrapperlogin{
+  height: 10%;
+  width: 80%;
+  display: flex;
+  margin-top: 150px;
+}
+
+.imagepart {
+  position: relative;
+  flex: 1;
+  height: 550px;
+  width: 100%;
+  background: url("../images/Mtb.png") no-repeat center center scroll;
+  background-size: cover;
+  float: left;
+  -webkit-animation: bgslide 2.3s forwards;
+          animation: bgslide 2.3s forwards;
+}
+.imagepart img {
+  width: 100%;
+  -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  height:fit-content;
+}
+
+@-webkit-keyframes bgslide {
+  from {
+    left: -100%;
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    width: 1194px;
+    opacity: 1;
+  }
+}
+
+@keyframes bgslide {
+  from {
+    left: -100%;
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    width: 1194px;
+    opacity: 1;
+  }
+}
+
+
+.loginpart {
+  position: relative;
+  background-color: black;
+  height:510px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+.loginpart .container {
+  width: 505px;
+  margin: 50px auto;
+  position: relative;
+}
+.loginpart .container h1 {
+  color: whitesmoke;
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.loginpart .container .login-form form {
+  display: -ms-grid;
+  display: grid;
+}
+.loginpart .container .login-form form input {
+  font-size: 16px;
+  font-weight: normal;
+  background: whitesmoke;
+  margin: 12.5px 0;
+  height: 60px;
+  border: none;
+  padding: 0 30px;
+  border-radius: 10px;
+}
+.loginpart .container .login-form form button[type=submit] {
+  background: -webkit-linear-gradient(bottom, #09203f 0%, #09cedc 100%);
+  background: -o-linear-gradient(bottom, #09203f 0%, #09cedc 100%);
+  background: linear-gradient(to top, #09203f 0%, #09cedc 100%);
+  cursor: pointer;
+  border: none;
+  margin-top: 40px;
+  margin-left: 120px;
+  width: 241px;
+  height: 48px;
+  text-transform: uppercase;
+  color: whitesmoke;
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+  font-weight: bold;
+  font-size: 20px;
+}
+.loginpart .container .login-form form button[type=submit]:hover::after {
+  cursor: pointer;
+  opacity: 1;
+}
+.loginpart .container .login-form form button[type=submit]::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 10px;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  -webkit-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  right: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left bottom, left top, from(#09203f), to(#537895));
+  background: -webkit-linear-gradient(bottom, #09203f 0%, #09cedc 100%);
+  background: -o-linear-gradient(bottom, #09203f 0%, #09cedc 100%);
+  background: linear-gradient(to top, #09203f 0%, #09cedc 100%);
+}
+.loginpart .container .remember-form {
+  position: relative;
+  margin-top: -30px;
+}
+.loginpart .container .remember-form input[type=checkbox] {
+  margin-top: 9px;
+}
+.loginpart .container .remember-form span {
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  top: 32px;
+  color: whitesmoke;
+  margin-left: 15px;
+}
+.loginpart .container .forget-pass {
+  position: absolute;
+  right: 0;
+  margin-top: 189px;
+}
+.loginpart .container .forget-pass a {
+  font-size: 16px;
+  position: relative;
+  font-weight: normal;
+  color: whitesmoke;
+}
+.loginpart .container .forget-pass a::after {
+  color: #09cedc;
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  border-radius: 100px;
+  bottom: -4px;
+  left: 0;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+  right: 0;
+}
+/* .loginpart .container .forget-pass a:hover::after {
+  opacity: 1;
+  color: #09cedc;
+} */
+
+@media only screen and (min-width: 1024px) and (max-width: 1680px) {
+  .imagepart {
+    width: 50%;
+    -webkit-animation: none;
+            animation: none;
+  }
+
+  .loginpart {
+    width: 50%;
+  }
+}
+/* Display 12", iPad PRO Portrait, iPad landscape */
+@media only screen and (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  @-webkit-keyframes slideIn {
+    from {
+      left: -100%;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      left: -100%;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  }
+  .imagepart {
+    float: none;
+    background: url("/static/images/Mtb.png") center center;
+    background-size: cover;
+    -webkit-animation: slideIn 0.8s ease-in-out forwards;
+            animation: slideIn 0.8s ease-in-out forwards;
+    width: 100%;
+    height: 190px;
+    text-align: center;
+  }
+  .imagepart img {
+    width: 100px;
+    height: auto;
+    margin: 20px auto !important;
+    text-align: center;
+  }
+  .imagepart .burger-btn {
+    left: 33px;
+    top: 29px;
+    display: block;
+    position: absolute;
+  }
+  .imagepart .burger-btn span {
+    display: block;
+    height: 4px;
+    margin: 6px;
+    background-color: #fff;
+  }
+  .imagepart .burger-btn span:nth-child(1) {
+    width: 37px;
+  }
+  .imagepart .burger-btn span:nth-child(2) {
+    width: 28px;
+  }
+  .imagepart .burger-btn span:nth-child(3) {
+    width: 20px;
+  }
+
+  .loginpart {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .loginpart .container {
+    -webkit-animation: slideIn 0.8s ease-in-out forwards;
+            animation: slideIn 0.8s ease-in-out forwards;
+    width: 85%;
+    float: none;
+  }
+  .loginpart .container h1 {
+    font-size: 25px;
+    margin-top: 40px;
+  }
+  .loginpart .container .login-form {
+    margin-top: 90px;
+  }
+  .loginpart .container .login-form form input {
+    height: 45px;
+  }
+  .loginpart .container .login-form form button[type=submit] {
+    height: 45px;
+    margin-top: 100px;
+  }
+  .loginpart .container .login-form .remember-form {
+    position: relative;
+    margin-top: -14px;
+  }
+  .loginpart .container .login-form .remember-form span {
+    font-size: 16px;
+    margin-top: 22px;
+    top: inherit;
+  }
+
+  .forget-pass {
+    position: absolute;
+    right: inherit;
+    left: 0;
+    bottom: -40px;
+    margin: 0 !important;
+  }
+  .forget-pass a {
+    font-size: 16px;
+    position: relative;
+    font-weight: normal;
+    color: #918F8F;
+  }
+  .forget-pass a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    border-radius: 100px;
+    background: -webkit-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
+    background: -o-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
+    background: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
+    bottom: -4px;
+    left: 0;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    opacity: 0;
+    right: 0;
+  }
+  .forget-pass a:hover::after {
+    opacity: 1;
+  }
+}

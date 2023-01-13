@@ -1,0 +1,48 @@
+<div th:fragments="header" class="head">
+    <!-- Logo Division -->
+    <div class="logo-div" style="flex: 1.5;">
+      <button class="btn" onclick="alert('Noice')" >
+        <img th:src="@{~/images/logosmall.png}" alt="logo" class="logo">
+      </button>
+    </div>
+    <div class="navbaritems">
+      <ul>
+        <li>
+          <span class="fas fa-home" id="headIcon"></span>
+          <a href="#"> Home </a>
+        </li>
+        <li>
+          <span class="fa fa-list" id="headIcon"></span>
+          <a href="#"> About </a>
+        </li>
+        <li>
+          <span class="fas fa-services" id="headIcon"></span>
+          <a href="#"> TicketRates </a>
+        </li>
+        <li>
+          <span class="fas fa-services" id="headIcon"></span>
+          <a href="#"> MyTickets </a>
+        </li>
+        <li>
+          <span class="fas fa-contact" id="headIcon"></span>
+          <a href="#"> Contact Us </a>
+        </li>
+        <li>
+          <span class="fas fa-help" id="headIcon"></span>
+          <a href="#"> Help </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Profile Picture Division -->
+    <div class="profile">
+      <li>
+        <span class="fas fa-help" id="headIcon"></span>
+        <a href="#"> SignIn </a>
+      </li>
+      <li>
+        <span class="fas fa-help" id="headIcon"></span>
+        <a href="#">SignUp</a>
+      </li>
+    </div>
+  </div>
