@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SignUp</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/signup.css">
+    <link rel="stylesheet" th:href="@{~/css/signup.css}" >
 </head>
 <body>
+<header>
 
+</header>
+<div class="wrapperlogin">
+    <div class="loginpart">
+            <h1>Login to access to<br />your account</h1>
+            <div class="login-form">
+                <form action="" th:method="post"
+                      th:action="@{/user/create}"
+                      th:object="${user}" >
+                    <input type="email" placeholder="FirstName">
+                    <input type="email" placeholder="LastName">
+                    <input type="email" placeholder="Email">
+                    <input type="email" placeholder="MobileNo">
+                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="ConfirmPassword">
+                    <button type="submit">Sign-Up</button>
+                </form>
+            </div>
+    </div>
+</div>
 </body>
 </html>

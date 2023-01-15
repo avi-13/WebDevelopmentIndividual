@@ -1,0 +1,70 @@
+body {
+    height: 100vh;
+    align-content: center;
+    align-items: center;
+    background: -webkit-linear-gradient(top, #09203f 10%, #09cedc 60%);
+    background: -o-linear-gradient(top, #09203f 0%, #09cedc 100%);
+    background: linear-gradient(top, #09203f 0%, #09cedc 100%);
+}
+
+header{
+    background-attachment: fixed;
+}
+
+
+.wrapperlogin{
+    display: flex;
+    height: 420px;
+    width: 800px;
+    align-content: center;
+    margin-top: 150px;
+    margin-left: 350px;
+    border-radius: 10px;
+}
+
+.loginpart {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 80px 20px 80px ;
+    border-radius: 20px;
+
+}
+
+.loginpart h1 {
+    color: whitesmoke;
+    margin-top: 10px;
+    margin-left:13px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.loginpart .login-form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.loginpart .login-form form input {
+    font-size: 20px;
+    font-weight: normal;
+    background: whitesmoke;
+    margin: 10px 10px;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+.loginpart .login-form form button[type=submit] {
+    background: linear-gradient(to top, #09203f 0%, #09cedc 100%);
+    cursor: pointer;
+    margin-top: 40px;
+    margin-left: 200px;
+    width: 201px;
+    height: 48px;
+    text-transform: uppercase;
+    color: whitesmoke;
+    border-radius: 10px;
+    z-index: 2;
+    font-weight: bold;
+    font-size: 29px;
+}
