@@ -24,10 +24,6 @@ public class User {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
-    private String userName;
-
-
     @Column(name = "Email",nullable = false)
     private String email;
 

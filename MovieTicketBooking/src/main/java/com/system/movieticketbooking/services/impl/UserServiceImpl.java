@@ -14,10 +14,10 @@ public class UserServiceImpl implements UserService {
     private final UserRepo userRepo;
 
 
-    @Override
-    public User fetchById(Integer id) {
-        return userRepo.findById(id).orElseThrow(() -> new RuntimeException("Not Found"));
-    }
+//    @Override
+//    public User fetchById(Integer id) {
+//        return userRepo.findById(id).orElseThrow(() -> new RuntimeException("Not Found"));
+//    }
 
     @Override
     public String saveUser(UserPojo userPojo) {
@@ -25,7 +25,8 @@ public class UserServiceImpl implements UserService {
         if (userPojo.getId()!= null){
             user.setId(userPojo.getId());
         }
-        user.setUserName(userPojo.getUserName());
+        user.setFirstName(userPojo.getFirstName());
+        user.setLastName(userPojo.getLastName());
         user.setEmail(userPojo.getEmail());
         user.setMobileNo(userPojo.getMobileNo());
         user.setPassword(userPojo.getPassword());
@@ -34,12 +35,11 @@ public class UserServiceImpl implements UserService {
     }
 
     public List<User> fetchAll() {
-//        user vanni table bata data fetch garxw
         return this.userRepo.findAll();
     }
 
-    @Override
-    public void deleteById(Integer id) {
-        userRepo.deleteById(id);
-    }
+//    @Override
+//    public void deleteById(Integer id) {
+//        userRepo.deleteById(id);
+//    }
 }

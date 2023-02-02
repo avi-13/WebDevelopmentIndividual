@@ -1,5 +1,4 @@
 package com.system.movieticketbooking.security;
-// csrf form ma csrf pathaunai parni hunxw yedi off garenw vani default ma;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,14 +15,14 @@ public class SpringSecurityConfig {
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/login","/user/**")
+                .requestMatchers("/homepage/**","/login/**","/user/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/dashboard",true)
+                .loginPage("/homepage")
+                .defaultSuccessUrl("/home",true)
                 .usernameParameter("email")
                 .permitAll()
                 .and()
@@ -34,6 +33,6 @@ public class SpringSecurityConfig {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer()
     {
-        return (web) -> web.ignoring().requestMatchers("/css/**","/images/**","/javascript/**");
+        return (web) -> web.ignoring().requestMatchers("/css/**","/images/**","/js/**");
     }
 }

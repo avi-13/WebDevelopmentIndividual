@@ -10,10 +10,10 @@ public interface UserService {
     String saveUser(UserPojo userPojo);
 
     List<User> fetchAll();
-
-    User fetchById(Integer id) ;
-
-    void deleteById(Integer id);
+//
+//    User fetchById(Integer id) ;
+//
+//    void deleteById(Integer id);
 
 
 }

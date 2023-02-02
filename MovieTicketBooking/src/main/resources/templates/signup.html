@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/signup.css">
+<!--    <link rel="stylesheet" href="../static/css/signup.css">-->
     <link rel="stylesheet" th:href="@{~/css/signup.css}" >
+    <title>Create An Account</title>
 </head>
 <body>
 <header>
@@ -13,18 +14,26 @@
 </header>
 <div class="wrapperlogin">
     <div class="loginpart">
-            <h1>Login to access to<br />your account</h1>
+            <h1>Login to access to<br/>your account</h1>
             <div class="login-form">
-                <form action="" th:method="post"
-                      th:action="@{/user/create}"
-                      th:object="${user}" >
-                    <input type="email" placeholder="FirstName">
-                    <input type="email" placeholder="LastName">
-                    <input type="email" placeholder="Email">
-                    <input type="email" placeholder="MobileNo">
-                    <input type="password" placeholder="Password">
-                    <input type="password" placeholder="ConfirmPassword">
-                    <button type="submit">Sign-Up</button>
+                <form th:method="post" th:action="@{/user/save}" th:object="${user}">
+                    <input type="text" hidden placeholder="UserId..." th:field="*{id}" th:value="${user.id}" />
+
+                    <input type="text" placeholder="FirstName..." th:field="*{firstName}" th:value="${user.firstName}" />
+
+                    <input type="text" placeholder="LastName..." th:field="*{lastName}" th:value="${user.lastName}" />
+
+
+                    <input type="email" placeholder="Enter your email..." th:field="*{email}" th:value="${user.email}" />
+
+                    <input type="text" placeholder="Enter phone number..." th:field="*{mobileNo}" th:value="${user.mobileNo}" />
+
+                    <input type="password" placeholder="Password..." th:field="*{password}" th:value="${user.password}" />
+
+                    <input type="password" placeholder="Confirm Password..." th:field="*{password}" th:value="${user.password}" />
+
+                    <button type="submit" class="submit">Register</button>
+
                 </form>
             </div>
     </div>
