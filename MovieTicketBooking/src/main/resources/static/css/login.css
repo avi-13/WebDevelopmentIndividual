@@ -9,135 +9,7 @@ body {
   overflow-x: hidden;
 }
 
-header{
-  background-attachment: fixed;
-}
-
-
-.head{
-  display: flex;
-  background-color: #070f20;
-  position: fixed;
-  top: 0;
-  left:0;
-  width: 100%;
-  height: 100px;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.head .btn{
-  background-color: #070f20;
-  height: 50px;
-  cursor: pointer;
-  transition: all 175ms ease-in-out;
-  flex: 1;
-  margin-left: 40px;
-}
-
-.head .btn:hover{
-  scale: 1.1;
-}
-
-/* 1. i.*/
-.head .logo-div .logo{
-  margin-top: 2px;
-  height: 50px;
-  margin-left: -34px;
-  flex: 1;
-}
-
-.head .navbaritems #headIcon{
-  display: inline;
-  color: azure;
-  background-color: aqua;
-}
-
-
-.head .profile{
-  align-items: center;
-  justify-content: center;
-  flex: 1.5;
-  padding-right: 2%;
-}
-
-.head .profile .profile:hover{
-  scale: 1.1;
-}
-
-.navbaritems{
-  display: flex;
-  flex: 9;
-}
-
-.navbaritems ul {
-  flex: 2;
-  width: 60%;
-  text-align:center;
-}
-.navbaritems ul li {
-  display: inline-block;
-  transition: all 0.5s ease;
-  text-align: center;
-  cursor: pointer;
-  padding: 1%;
-  height: 20px;
-  overflow: hidden;
-}
-.navbaritems ul li:hover {
-  scale: 1.25;
-}
-
-.navbaritems ul li a {
-  text-decoration:double;
-  font-size: 25px;
-  color: white;
-}
-.navbaritems ul li a:active,
-:focus {
-  text-decoration: underline;
-  font-weight: 700;
-}
-
-*:focus {
-  outline: none;
-}
-
-.loginsignup{
-  display: flex;
-  width: 40%;
-}
-.loginsignup ul{
-  flex: 1;
-}
-
-.loginsignup ul li {
-  flex-direction: row;
-  display: inline-block;
-  transition: all 0.5s ease;
-  text-align: center;
-  cursor: pointer;
-  padding: 1%;
-  height: 20px;
-  overflow: hidden;
-}
-.loginsignup ul li:hover {
-  scale: 1.25;
-}
-
-.loginsignup ul li a {
-  text-decoration:double;
-  font-size: 25px;
-  color: white;
-}
-.loginsignup ul li a:active,
-:focus {
-  text-decoration: underline;
-  font-weight: 700;
-}
-
-.wrapperlogin{
+.wrapperSignup{
   height: 10%;
   width: 80%;
   display: flex;
@@ -191,7 +63,7 @@ header{
 }
 
 
-.loginpart {
+.signupPart {
   position: relative;
   background-color: black;
   height:510px;
@@ -199,126 +71,103 @@ header{
   margin-bottom: 100px;
 }
 
-.loginpart .container {
+.signupPart .container {
   width: 505px;
   margin: 50px auto;
   position: relative;
 }
-.loginpart .container h1 {
+.signupPart .container h1 {
   color: whitesmoke;
   margin-top: 10px;
   font-size: 30px;
   font-weight: bolder;
 }
 
-.loginpart .container .login-form form {
+.signupPart .container .login-form form {
   display: -ms-grid;
   display: grid;
 }
-.loginpart .container .login-form form input {
+.signupPart .container .login-form form input {
   font-size: 16px;
   font-weight: normal;
   background: whitesmoke;
-  margin: 12.5px 0;
+  margin: 12px 0;
   height: 60px;
   border: none;
   padding: 0 30px;
   border-radius: 10px;
 }
-.loginpart .container .login-form form button[type=submit] {
-  background: -webkit-linear-gradient(bottom, #09203f 0%, #09cedc 100%);
-  background: -o-linear-gradient(bottom, #09203f 0%, #09cedc 100%);
+
+.signupPart .login-form form button {
   background: linear-gradient(to top, #09203f 0%, #09cedc 100%);
   cursor: pointer;
-  border: none;
   margin-top: 40px;
-  margin-left: 120px;
-  width: 241px;
+  margin-left: 159px;
+  width: 201px;
   height: 48px;
   text-transform: uppercase;
   color: whitesmoke;
   border-radius: 10px;
-  position: relative;
-  z-index: 2;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 29px;
 }
-.loginpart .container .login-form form button[type=submit]:hover::after {
-  cursor: pointer;
-  opacity: 1;
-}
-.loginpart .container .login-form form button[type=submit]::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  border-radius: 10px;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  -webkit-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-  right: 0;
-  bottom: 0;
-  background: -webkit-gradient(linear, left bottom, left top, from(#09203f), to(#537895));
-  background: -webkit-linear-gradient(bottom, #09203f 0%, #09cedc 100%);
-  background: -o-linear-gradient(bottom, #09203f 0%, #09cedc 100%);
-  background: linear-gradient(to top, #09203f 0%, #09cedc 100%);
-}
-.loginpart .container .remember-form {
-  position: relative;
-  margin-top: -30px;
-}
-.loginpart .container .remember-form input[type=checkbox] {
-  margin-top: 9px;
-}
-.loginpart .container .remember-form span {
-  font-size: 18px;
-  font-weight: normal;
-  position: absolute;
-  top: 32px;
-  color: whitesmoke;
-  margin-left: 15px;
-}
-.loginpart .container .forget-pass {
-  position: absolute;
-  right: 0;
-  margin-top: 189px;
-}
-.loginpart .container .forget-pass a {
-  font-size: 16px;
-  position: relative;
-  font-weight: normal;
-  color: whitesmoke;
-}
-.loginpart .container .forget-pass a::after {
-  color: #09cedc;
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  border-radius: 100px;
-  bottom: -4px;
-  left: 0;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  opacity: 0;
-  right: 0;
-}
-/* .loginpart .container .forget-pass a:hover::after {
-  opacity: 1;
-  color: #09cedc;
-} */
 
-@media only screen and (min-width: 1024px) and (max-width: 1680px) {
+.submit {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #0b085e;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.submit:before {
+  content: '';
+  background: linear-gradient(45deg, #0e417a, #7b51c4, #11bede, #f3f5f5, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.submit:active {
+  color: #000
+}
+
+.submit:active:after {
+  background: transparent;
+}
+
+.submit:hover:before {
+  opacity: 1;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1880px) {
   .imagepart {
     width: 50%;
     -webkit-animation: none;
             animation: none;
   }
 
-  .loginpart {
+  .signupPart {
     width: 50%;
   }
 }
@@ -387,36 +236,36 @@ header{
     width: 20px;
   }
 
-  .loginpart {
+  .signupPart {
     float: none;
     margin: 0 auto;
     width: 100%;
   }
-  .loginpart .container {
+  .signupPart .container {
     -webkit-animation: slideIn 0.8s ease-in-out forwards;
             animation: slideIn 0.8s ease-in-out forwards;
     width: 85%;
     float: none;
   }
-  .loginpart .container h1 {
+  .signupPart .container h1 {
     font-size: 25px;
     margin-top: 40px;
   }
-  .loginpart .container .login-form {
+  .signupPart .container .login-form {
     margin-top: 90px;
   }
-  .loginpart .container .login-form form input {
+  .signupPart .container .login-form form input {
     height: 45px;
   }
-  .loginpart .container .login-form form button[type=submit] {
+  .signupPart .container .login-form form button[type=submit] {
     height: 45px;
     margin-top: 100px;
   }
-  .loginpart .container .login-form .remember-form {
+  .signupPart .container .login-form .remember-form {
     position: relative;
     margin-top: -14px;
   }
-  .loginpart .container .login-form .remember-form span {
+  .signupPart .container .login-form .remember-form span {
     font-size: 16px;
     margin-top: 22px;
     top: inherit;

@@ -12,27 +12,29 @@
 <header>
 
 </header>
-<div class="wrapperlogin">
-    <div class="loginpart">
+<div class="wrapperSignup">
+    <div class="signupPart">
             <h1>Login to access to<br/>your account</h1>
             <div class="login-form">
                 <form th:method="post" th:action="@{/user/save}" th:object="${user}">
                     <input type="text" hidden placeholder="UserId..." th:field="*{id}" th:value="${user.id}" />
 
-                    <input type="text" placeholder="FirstName..." th:field="*{firstName}" th:value="${user.firstName}" />
+                    <input type="text" required placeholder="FirstName..." th:field="*{firstName}" th:value="${user.firstName}" />
 
-                    <input type="text" placeholder="LastName..." th:field="*{lastName}" th:value="${user.lastName}" />
+                    <input type="text" required placeholder="LastName..." th:field="*{lastName}" th:value="${user.lastName}" />
 
 
-                    <input type="email" placeholder="Enter your email..." th:field="*{email}" th:value="${user.email}" />
+                    <input type="email" required placeholder="Enter your email..." th:field="*{email}" th:value="${user.email}" />
 
-                    <input type="text" placeholder="Enter phone number..." th:field="*{mobileNo}" th:value="${user.mobileNo}" />
+                    <input type="text" required placeholder="Enter phone number..." th:field="*{mobileNo}" th:value="${user.mobileNo}" />
 
-                    <input type="password" placeholder="Password..." th:field="*{password}" th:value="${user.password}" />
+                    <input type="password" required placeholder="Password..." th:field="*{password}" th:value="${user.password}" />
 
-                    <input type="password" placeholder="Confirm Password..." th:field="*{password}" th:value="${user.password}" />
+                    <input type="password" required placeholder="Confirm Password..." th:field="*{password}" th:value="${user.password}" />
 
-                    <button type="submit" class="submit">Register</button>
+                    <button type="submit"  class="submit">Sign-Up</button>
+
+                    <span style="color: whitesmoke"> <i>Have An Account ?</i> <a th:href="@{~/user/login}" style="color: #00ffd5">SignIn</a></span>
 
                 </form>
             </div>

@@ -1,0 +1,126 @@
+.head{
+    display: flex;
+    background-color: #070f20;
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 150px;
+    z-index: 2;
+}
+
+.head .btn{
+    background-color: #070f20;
+    height: 50px;
+    cursor: pointer;
+    transition: all 175ms ease-in-out;
+    flex: 1;
+    margin-left: 40px;
+}
+
+.head .btn:hover{
+    scale: 1.1;
+}
+
+/* 1. i.*/
+.head .logo-div .logo{
+    margin-top: 2px;
+    height: 50px;
+    margin-left: -34px;
+    flex: 1;
+}
+
+.head .navbarItems .headIcon{
+    display: inline;
+    color: azure;
+    background-color: aqua;
+}
+
+
+.head .profile{
+    align-items: center;
+    justify-content: center;
+    flex: 1.5;
+    padding-right: 2%;
+}
+
+.head .profile .profile:hover{
+    scale: 1.1;
+}
+
+.navbarItems{
+    display: flex;
+    flex: 9;
+}
+
+.navbarItems ul {
+    width: 60%;
+    text-align:center;
+}
+
+.navbarItems ul li {
+    display: inline-block;
+    transition: all 0.5s ease;
+    text-align: center;
+    cursor: pointer;
+    padding: 1%;
+    height: 20px;
+    overflow: hidden;
+}
+
+.navbarItems ul li:hover {
+    scale: 1.25;
+}
+
+.navbarItems ul li a {
+    text-decoration:double;
+    font-size: 25px;
+    color: white;
+}
+
+.navbarItems ul li a:active,
+:focus {
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+*:focus {
+    outline: none;
+}
+
+.head.navbarItems.loginSignup{
+    display: flex;
+    width: 35%;
+}
+
+.head.navbarItems.loginSignup ul{
+    flex: 1;
+}
+
+.head.navbarItems.loginSignup ul li {
+    flex-direction: row;
+    display: inline-block;
+    transition: all 0.5s ease;
+    text-align: center;
+    cursor: pointer;
+    padding: 1%;
+    height: 20px;
+    overflow: hidden;
+}
+
+.head.navbarItems.loginSignup ul li:hover {
+    scale: 1.25;
+}
+
+.head.navbarItems.loginSignup ul li a {
+    text-decoration:double;
+    font-size: 25px;
+    color: white;
+}
+
+.head.navbarItems.loginSignup ul li a:active,
+:focus {
+    text-decoration: underline;
+    font-weight: 700;
+}

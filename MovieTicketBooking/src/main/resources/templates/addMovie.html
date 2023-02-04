@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" th:href="@{~/css/addMovies.css}">
+  <link rel="stylesheet" href="/static/css/addMovies.css">
+
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Movie Details</h1>
+
+  <form th:method="post" th:action="@{/movie/save}" th:object="${movie}" enctype="multipart/form-data">
+    <div class="inside_container">
+      <div class="left-side">
+
+        <input class="field" type="text" hidden placeholder="UserId..."  th:field="*{pid}" th:value="${movie.pid}" />
+
+        <div class="title movie">
+          <input type="text" placeholder="movie Title" required th:field="*{ptitle}" th:value="${movie.ptitle}" />
+        </div>
+
+
+        <div class="Brand movie">
+          <input type="text" placeholder="Manufacturer Brand" required th:field="*{BName}" th:value="${movie.BName}" />
+        </div>
+
+
+        <div class="sizemovie" >
+          <select name="Size " id="size">
+            <option value="Null">Size</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+            <option value="ELarge">Extra Large</option>
+          </select>
+        </div>
+
+        <div class="category movie">
+          <select name="Category " id="category"  th:field="*{PCategories}"  th:value="${movie.PCategories}" >
+            <option value="Null" >Category</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Shoes">Shoes</option>
+            <option value="Wedding & Party">Wedding & Party</option>
+            <option value="Jewelry & Accessories">Jewelry & Accessories</option>
+            <option value="Home & Living">Home & Living</option>
+            <option value="Health & Beauty">Health & Beauty</option>
+            <option value="Toys & Entertainment">Toys & Entertainment</option>
+            <option value="Art & Collectibles">Art & Collectibles</option>
+            <option value="Craft Supplies & Tools">Craft Supplies & Tools</option>
+            <option value="Electronics">Electronics</option>
+          </select>
+        </div>
+
+        <div class="price movie">
+          <input type="text" placeholder="movie Price" required th:field="*{PPrice}"  th:value="${movie.PPrice}"  />
+        </div>
+
+        <div class="description" >
+          <!--        <input type="Text" placeholder="Description" required th:field="*{PDesc}" th:value="${movie.PDesc}"  />-->
+          <textarea rows="10" cols="100" placeholder="movieDescription....." required th:field="*{PDesc}"  th:value="${movie.PDesc}"  > </textarea>
+
+        </div>
+
+      </div>
+
+      <div class="profile-pic">
+        <img class="img" alt="UserPic" src="/static/images/upload.png" id="profile-image1" >
+        <input id="profile-image-upload" hidden th:field="*{image}" accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile()">
+      </div>
+
+    </div>
+
+
+    <div class="footer">
+      <button type="submit">Add Movie</button>
+    </div>
+
+  </form>
+</div>
+</body>
+<script src="/static/js/addMovies.js"></script>
+
+
+<script>  let myPage = "store";
+let listGroupItem = Array.from(document.getElementsByClassName("list-view-active"));
+listGroupItem.forEach(i=>{    i.classList.remove("active")  })
+let activeID = document.getElementById(myPage);  activeID.classList.add("active");</script>
+</html>
