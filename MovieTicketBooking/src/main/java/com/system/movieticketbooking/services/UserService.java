@@ -9,9 +9,11 @@ public interface UserService {
 
     String saveUser(UserPojo userPojo);
 
+    User findByEmail(String email);
+
     List<User> fetchAll();
 //
-//    User fetchById(Integer id) ;
+//    User findByEmail(Integer id) ;
 //
 //    void deleteById(Integer id);
 

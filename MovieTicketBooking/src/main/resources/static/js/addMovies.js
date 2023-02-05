@@ -16,7 +16,7 @@ function previewFile() {
     }
 }
 $(function () {
-    $("#profile-image1").on("click", function () {
-        $("#profile-image-upload").click();
+    $("#movieImage").on("click", function () {
+        $("#movieImageUpload").click();
     });
 });

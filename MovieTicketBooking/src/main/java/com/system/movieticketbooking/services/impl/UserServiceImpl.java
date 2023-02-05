@@ -3,7 +3,10 @@ import com.system.movieticketbooking.entity.User;
 import com.system.movieticketbooking.pojo.UserPojo;
 import com.system.movieticketbooking.repo.UserRepo;
 import com.system.movieticketbooking.services.UserService;
+import com.system.movieticketbooking.exception.AppException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,13 +28,22 @@ public class UserServiceImpl implements UserService {
         if (userPojo.getId()!= null){
             user.setId(userPojo.getId());
         }
-        user.setFirstName(userPojo.getFirstName());
-        user.setLastName(userPojo.getLastName());
+        user.setFullName(userPojo.getFullName());
+        user.setUsername(userPojo.getUsername());
         user.setEmail(userPojo.getEmail());
         user.setMobileNo(userPojo.getMobileNo());
-        user.setPassword(userPojo.getPassword());
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodePassword = passwordEncoder.encode(userPojo.getPassword());
+        user.setPassword(encodePassword);
         userRepo.save(user);
         return "created";
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepo.findByEmail(email)
+                .orElseThrow(() -> new AppException("Invalid User email", HttpStatus.BAD_REQUEST));
     }
 
     public List<User> fetchAll() {

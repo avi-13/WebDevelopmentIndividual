@@ -32,13 +32,13 @@ h1{
 
 }
 
-.profile-pic{
+.moviePoster{
     margin: -340px -100px 9px;
     height: 300px;
     width: 300px;
 }
 
-.profile-pic img{
+.moviePoster img{
     border-radius: 60%;
     box-shadow: 10px 10px 10px 10px #c1c1c1;
     cursor: pointer;

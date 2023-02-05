@@ -3,13 +3,14 @@ package com.system.movieticketbooking.controller;
 import com.system.movieticketbooking.entity.User;
 import com.system.movieticketbooking.pojo.UserPojo;
 import com.system.movieticketbooking.services.UserService;
-//import com.system.movieticketbooking.pojo.UserPojo;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,14 +23,14 @@ public class UserController {
     private final UserService userService;
 //    private final ValidationAutoConfiguration validationAutoConfiguration;
 
-    @GetMapping("/home")
-    public String homePage(){
-        return "homepage";
-    }
 
     @GetMapping("/login")
-    public String getPage(){
-        return "/login";
+    public String login() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "login";
+        }
+        return "redirect:/home/homepage";
     }
 
     @GetMapping("/list")

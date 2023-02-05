@@ -15,7 +15,7 @@
 <div class="container">
   <h1>Movie Details</h1>
 
-  <form th:method="post" th:action="@{/movie/save}" th:object="${movie}" enctype="multipart/form-data">
+  <form th:method="post" th:action="@{/movie/saveMovie}" th:object="${movie}" enctype="multipart/form-data">
     <div class="inside_container">
       <div class="left-side">
 
@@ -62,16 +62,16 @@
         </div>
 
         <div class="description" >
-          <!--        <input type="Text" placeholder="Description" required th:field="*{PDesc}" th:value="${movie.PDesc}"  />-->
+          <!--      movie  <input type="Text" placeholder="Description" required th:field="*{PDesc}" th:value="${movie.PDesc}"  />-->
           <textarea rows="10" cols="100" placeholder="movieDescription....." required th:field="*{PDesc}"  th:value="${movie.PDesc}"  > </textarea>
 
         </div>
 
       </div>
 
-      <div class="profile-pic">
-        <img class="img" alt="UserPic" src="/static/images/upload.png" id="profile-image1" >
-        <input id="profile-image-upload" hidden th:field="*{image}" accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile()">
+      <div class="moviePoster">
+        <img class="img" alt="movieCover" th:src="@{/images/logo.png}" id="movieImage" >
+        <input id="movieImageUpload" hidden accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile()" />
       </div>
 
     </div>
@@ -83,12 +83,10 @@
 
   </form>
 </div>
-</body>
 <script src="/static/js/addMovies.js"></script>
+<script th:src="@{~/js/addMovies.js}"></script>
+
+</body>
 
 
-<script>  let myPage = "store";
-let listGroupItem = Array.from(document.getElementsByClassName("list-view-active"));
-listGroupItem.forEach(i=>{    i.classList.remove("active")  })
-let activeID = document.getElementById(myPage);  activeID.classList.add("active");</script>
 </html>

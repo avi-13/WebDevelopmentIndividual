@@ -14,9 +14,9 @@ import lombok.Setter;
 public class UserPojo {
 
     private Integer id;
-    private String firstName;
-    private String lastName;
+    private String fullName;
     private String email;
+    private String username;
     private String mobileNo;
     private String password;
 
@@ -24,9 +24,9 @@ public class UserPojo {
 
     public UserPojo(User user){
         this.id= user.getId();
-        this.firstName = user.getFirstName();
-        this.lastName=user.getLastName();
+        this.fullName = user.getFullName();
         this.email=user.getEmail();
+        this.username=getUsername();
         this.password=user.getPassword();
         this.mobileNo=user.getMobileNo();
     }

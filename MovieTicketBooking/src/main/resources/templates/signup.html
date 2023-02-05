@@ -19,9 +19,9 @@
                 <form th:method="post" th:action="@{/user/save}" th:object="${user}">
                     <input type="text" hidden placeholder="UserId..." th:field="*{id}" th:value="${user.id}" />
 
-                    <input type="text" required placeholder="FirstName..." th:field="*{firstName}" th:value="${user.firstName}" />
+                    <input type="text" required placeholder="FullName..." th:field="*{fullName}" th:value="${user.fullName}" />
 
-                    <input type="text" required placeholder="LastName..." th:field="*{lastName}" th:value="${user.lastName}" />
+                    <input type="text" required placeholder="UserName..." th:field="*{username}" th:value="${user.username}" />
 
 
                     <input type="email" required placeholder="Enter your email..." th:field="*{email}" th:value="${user.email}" />
