@@ -1,85 +1,103 @@
-* {
-    font-size: 14px;
-
+body {
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+    background: -webkit-linear-gradient(top, #09203f 10%, #09cedc 60%);
+    overflow-x: hidden;
 }
-
+h1{
+    color: whitesmoke;
+    font-size: 6em;
+}
 .container{
-    /* background-color: white; */
-    max-height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*background-color: #d0d0b5;*/
-    justify-content: space-around;
     padding: 3%;
-    width: 70%;
+    width: 80%;
+    border: black solid;
     border-radius: 5px;
-    margin-left: 20%;
-    /* border: green solid 2px;  */
 }
-h1{
-    margin-left: -700px;
-}
-.inside_container{
-    min-height: 60vh;
+
+form{
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     padding: 5%;
-    border-radius: 0%;
-
+    border-radius: 20px;
 }
 
-.moviePoster{
-    margin: -340px -100px 9px;
-    height: 300px;
-    width: 300px;
-}
-
-.moviePoster img{
-    border-radius: 60%;
-    box-shadow: 10px 10px 10px 10px #c1c1c1;
-    cursor: pointer;
-    width: 300px;
-    height: 300px;
-}
-
-.left-side{
-    width: 40%;
-    /* border: solid red 2px; */
-    margin-left: -80px;
-    margin-top: -40px;
-}
-.product{
-    width: 100%;
-    /* border: dotted red 2px; */
-}
-.product input, select{
-    width: 100%;
+input{
+    background: whitesmoke;
+    width: 33%;
     border: 1px solid black;
-    height: 100%;
     border-radius: 5px;
-    padding: 2%;
-    margin-top: 25px;
-
+    padding: 1%;
+    margin-top: 2%;
 }
-.description{
-    margin-top: 25px;
+
+select {
+    background: whitesmoke;
+    width: 66.4%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1%;
+    margin-top: 2%;
 }
 
 textarea{
+    background: whitesmoke;
+    resize:none;
+    width: 100%;
+    border: 1px solid black;
     border-radius: 5px;
-    padding: 2%;
-    resize: none;
+    padding: 1%;
+    margin-top: 2%;
 }
 
-button{
-    /* padding: 3% 5%; */
-    /*margin-left: 300px;*/
-    background: transparent;
-    border: transparent;
+.moviePic{
+    margin-top: 2%;
+    height: 300px;
+    width: 300px;
+}
+
+.moviePic img{
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 21px 0 black;
     cursor: pointer;
-    /* border: green solid 2px; */
+}
+
+.moviePic1{
+    margin-top: 2%;
+    height: 300px;
+    width: 693px;
+}
+
+.moviePic1 img{
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 21px 0 black;
+    cursor: pointer;
+}
+
+.addMovieBtn{
+    margin-left: 40%;
+    width: 25%;
+    margin-top: 2%;
+}
+
+.Btn{
+    display: flow-root;
+    width: 100%;
+    height: 40px;
+    color: whitesmoke;
+    background: #09203f;
+    border: #09203f solid 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 1%;
 }

@@ -36,6 +36,7 @@ public class MoviePojo {
     private String category;
 
     private MultipartFile image;
+    private MultipartFile image1;
 
     public MoviePojo(Movie movie) {
         this.movieId = movie.getId();

@@ -4,30 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="stylesheet" href="/static/css/login.css">
     <link rel="stylesheet" th:href="@{~/css/login.css}" >
-    <link rel="stylesheet" th:href="@{~/css/header.css}" >
+    <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
+    <link rel="stylesheet" th:href="@{~/css/footer.css}" >
     <title>Login</title>
 </head>
 <body>
-<div th:replace="~{fragments/header.html :: header}"></div>
+<div th:replace="~{fragments/navbar.html :: header}"></div>
 
-<div class="wrapperSignup">
-    <div class="imagepart"></div>
-    <div class="signupPart">
+<div class="wrapperSignIn">
+    <div class="imagePart"></div>
+    <div class="signInPart">
         <div class="container">
             <h1>Login to access to<br />your account</h1>
             <div class="login-form">
-                <form action="" th:method="post"
-                        th:action="@{/user/create}">
-                    <input type="email" placeholder="E-mail Address">
-                    <input type="password" placeholder="Password">
+                <form th:method="post" th:action="@{/login}">
+                    <input type="text" name="email" placeholder="E-mail Address">
+                    <input type="password" name="password" placeholder="Password">
                     <button class="submit" type="submit">LOG-IN</button>
-                    <span style="color: whitesmoke"> <i>Don't Have An Account ?</i> <a th:href="@{~/user/create}" style="color: #00ffd5">SignUp</a></span>
                 </form>
             </div>
+            <span style="color: whitesmoke"> <i>Don't Have An Account ?</i> <a th:href="@{~/user/create}" style="color: #00ffd5">SignUp</a></span>
         </div>
     </div>
 </div>
+
+<div th:replace="~{fragments/footer.html :: footer}"></div>
+
 </body>
 </html>

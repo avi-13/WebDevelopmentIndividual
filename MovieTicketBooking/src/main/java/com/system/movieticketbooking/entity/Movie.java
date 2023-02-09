@@ -46,6 +46,13 @@ public class Movie {
     private Integer shows;
 
     private String image;
+
+    private String image1;
+
+    @Transient
     private String imageBase64 ;
+
+    @Transient
+    private String image1Base64 ;
 
 }

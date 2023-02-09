@@ -1,14 +1,12 @@
 body {
+    display: flex;
+    align-items: center;
+    flex-direction:column;
     height: 100vh;
     align-content: center;
-    align-items: center;
     background: -webkit-linear-gradient(top, #09203f 10%, #09cedc 60%);
     background: -o-linear-gradient(top, #09203f 0%, #09cedc 100%);
     background: linear-gradient(top, #09203f 0%, #09cedc 100%);
-}
-
-header{
-    background-attachment: fixed;
 }
 
 .wrapperSignup{
@@ -38,14 +36,14 @@ header{
     font-weight: bolder;
 }
 
-.signupPart .login-form form {
+.signupPart .signup-form form {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
-.signupPart .login-form form input {
+.signupPart .signup-form form input {
     font-size: 20px;
     font-weight: normal;
     background: whitesmoke;
@@ -55,7 +53,7 @@ header{
     border-radius: 10px;
 }
 
-.signupPart .login-form form button {
+.signupPart .signup-form form button {
     background: linear-gradient(to top, #09203f 0%, #09cedc 100%);
     cursor: pointer;
     margin-top: 40px;

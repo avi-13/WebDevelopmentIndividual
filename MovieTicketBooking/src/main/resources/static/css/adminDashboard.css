@@ -4,3 +4,13 @@
     width: auto;
     border: solid 4px;
 }
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+    background: -webkit-linear-gradient(top, #09203f 10%, #09cedc 60%);
+    background: -o-linear-gradient(top, #09203f 0%, #09cedc 100%);
+    background: linear-gradient(top, #09203f 0%, #09cedc 100%);
+    overflow-x: hidden;
+}

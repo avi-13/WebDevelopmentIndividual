@@ -2,21 +2,20 @@ body {
   display: flex;
   align-items: center;
   flex-direction:column;
-  background: -webkit-linear-gradient(top, #09203f 20%, #09cedc 80%);
-  /*background: -o-linear-gradient(top, #09203f 0%, #09cedc 100%);*/
-  /*background: linear-gradient(to top, #09203f 0%, #09cedc 100%);*/
-  /*font-family: Montserrat;*/
+  background: -webkit-linear-gradient(top, #09203f 10%, #09cedc 60%);
+  background: -o-linear-gradient(top, #09203f 0%, #09cedc 100%);
+  background: linear-gradient(top, #09203f 0%, #09cedc 100%);
   overflow-x: hidden;
 }
 
-.wrapperSignup{
+.wrapperSignIn{
   height: 10%;
   width: 80%;
   display: flex;
-  margin-top: 150px;
+  margin-top: 6%;
 }
 
-.imagepart {
+.imagePart {
   position: relative;
   flex: 1;
   height: 550px;
@@ -27,7 +26,13 @@ body {
   -webkit-animation: bgslide 2.3s forwards;
           animation: bgslide 2.3s forwards;
 }
-.imagepart img {
+.login-form{
+  margin: 10px 10px 48px 10px;
+}
+.signInPart .container span{
+  margin: 0 0 0 270px;
+}
+.imagePart img {
   width: 100%;
   -webkit-user-select: none;
       -moz-user-select: none;
@@ -63,7 +68,7 @@ body {
 }
 
 
-.signupPart {
+.signInPart {
   position: relative;
   background-color: black;
   height:510px;
@@ -71,23 +76,23 @@ body {
   margin-bottom: 100px;
 }
 
-.signupPart .container {
+.signInPart .container {
   width: 505px;
   margin: 50px auto;
   position: relative;
 }
-.signupPart .container h1 {
+.signInPart .container h1 {
   color: whitesmoke;
   margin-top: 10px;
   font-size: 30px;
   font-weight: bolder;
 }
 
-.signupPart .container .login-form form {
+.signInPart .container .login-form form {
   display: -ms-grid;
   display: grid;
 }
-.signupPart .container .login-form form input {
+.signInPart .container .login-form form input {
   font-size: 16px;
   font-weight: normal;
   background: whitesmoke;
@@ -98,7 +103,7 @@ body {
   border-radius: 10px;
 }
 
-.signupPart .login-form form button {
+.signInPart .login-form form button {
   background: linear-gradient(to top, #09203f 0%, #09cedc 100%);
   cursor: pointer;
   margin-top: 40px;
@@ -161,13 +166,13 @@ body {
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1880px) {
-  .imagepart {
+  .imagePart {
     width: 50%;
     -webkit-animation: none;
             animation: none;
   }
 
-  .signupPart {
+  .signInPart {
     width: 50%;
   }
 }
@@ -198,7 +203,7 @@ body {
       opacity: 1;
     }
   }
-  .imagepart {
+  .imagePart {
     float: none;
     background: url("/static/images/Mtb.png") center center;
     background-size: cover;
@@ -208,64 +213,64 @@ body {
     height: 190px;
     text-align: center;
   }
-  .imagepart img {
+  .imagePart img {
     width: 100px;
     height: auto;
     margin: 20px auto !important;
     text-align: center;
   }
-  .imagepart .burger-btn {
+  .imagePart .burger-btn {
     left: 33px;
     top: 29px;
     display: block;
     position: absolute;
   }
-  .imagepart .burger-btn span {
+  .imagePart .burger-btn span {
     display: block;
     height: 4px;
     margin: 6px;
     background-color: #fff;
   }
-  .imagepart .burger-btn span:nth-child(1) {
+  .imagePart .burger-btn span:nth-child(1) {
     width: 37px;
   }
-  .imagepart .burger-btn span:nth-child(2) {
+  .imagePart .burger-btn span:nth-child(2) {
     width: 28px;
   }
-  .imagepart .burger-btn span:nth-child(3) {
+  .imagePart .burger-btn span:nth-child(3) {
     width: 20px;
   }
 
-  .signupPart {
+  .signInPart {
     float: none;
     margin: 0 auto;
     width: 100%;
   }
-  .signupPart .container {
+  .signInPart .container {
     -webkit-animation: slideIn 0.8s ease-in-out forwards;
             animation: slideIn 0.8s ease-in-out forwards;
     width: 85%;
     float: none;
   }
-  .signupPart .container h1 {
+  .signInPart .container h1 {
     font-size: 25px;
     margin-top: 40px;
   }
-  .signupPart .container .login-form {
+  .signInPart .container .login-form {
     margin-top: 90px;
   }
-  .signupPart .container .login-form form input {
+  .signInPart .container .login-form form input {
     height: 45px;
   }
-  .signupPart .container .login-form form button[type=submit] {
+  .signInPart .container .login-form form button[type=submit] {
     height: 45px;
     margin-top: 100px;
   }
-  .signupPart .container .login-form .remember-form {
+  .signInPart .container .login-form .remember-form {
     position: relative;
     margin-top: -14px;
   }
-  .signupPart .container .login-form .remember-form span {
+  .signInPart .container .login-form .remember-form span {
     font-size: 16px;
     margin-top: 22px;
     top: inherit;

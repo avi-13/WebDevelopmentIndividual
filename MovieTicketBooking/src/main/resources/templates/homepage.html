@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" href="/static/css/homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
+    <link rel="stylesheet" th:href="@{~/css/footer.css}" >
 </head>
 <body>
-<div class="container" th:each="user:${user}" >
-        <ul>
-            <li> <div class="bottom">Heading</div> </li>
-            <li> <div class="bottom">Heading</div> </li>
-            <li> <div class="bottom">Heading</div> </li>
-            <li> <div class="bottom">Heading</div> </li>
-            <li> <div class="bottom">Heading</div> </li>
-            <li> <div class="bottom">Heading</div> </li>
-            <li> <div class="bottom">Heading</div> </li>
-            <li> <div class="bottom">Heading</div> </li>
-        </ul>
+<div th:replace="~{fragments/navbar.html :: header}"></div>
+<div class="mClass">
+    <div class="">
+
     </div>
+</div>
+<div th:replace="~{fragments/footer.html :: footer}"></div>
 </body>
 </html>

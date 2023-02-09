@@ -4,6 +4,7 @@ import com.system.movieticketbooking.pojo.MoviePojo;
 import com.system.movieticketbooking.services.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,23 +25,29 @@ import java.util.Map;
 public class MovieController {
     private final MovieService movieService;
     @GetMapping("/addMovie")
-    public String getPage(){
+    public String addMovies(Model model){
+        model.addAttribute("movie", new MoviePojo());
         return "addMovie";
     }
 
+    @GetMapping("/movieList")
+    public String getMovieList(){
+        return "adminDashboard";
+    }
+
     @PostMapping("/saveMovie")
-    public String svaeMovie(MoviePojo moviePojo, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws IOException {
+    public String saveMovie(MoviePojo moviePojo, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws IOException {
         Map<String, String> requestError = validateRequest(bindingResult);
         if (requestError != null) {
             redirectAttributes.addFlashAttribute("requestError", requestError);
-            return "redirect:/product/addProduct";
+            return "redirect:/movie/addMovie";
         }
 
         movieService.saveMovie(moviePojo);
         redirectAttributes.addFlashAttribute("successMsg", "User saved successfully");
 
 
-        return "redirect:/product/list";
+        return "redirect:/movie/movieList";
 
     }
 

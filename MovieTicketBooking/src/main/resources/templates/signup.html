@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--    <link rel="stylesheet" href="../static/css/signup.css">-->
+    <link rel="stylesheet" href="../static/css/signup.css">
     <link rel="stylesheet" th:href="@{~/css/signup.css}" >
+    <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
+    <link rel="stylesheet" th:href="@{~/css/footer.css}" >
     <title>Create An Account</title>
 </head>
 <body>
-<header>
+<div th:replace="~{fragments/navbar.html :: header}"></div>
 
-</header>
 <div class="wrapperSignup">
     <div class="signupPart">
-            <h1>Login to access to<br/>your account</h1>
-            <div class="login-form">
+            <h1>Create An Account To<br/>Book Your First Ticket</h1>
+            <div class="signup-form">
                 <form th:method="post" th:action="@{/user/save}" th:object="${user}">
                     <input type="text" hidden placeholder="UserId..." th:field="*{id}" th:value="${user.id}" />
 
@@ -40,5 +42,6 @@
             </div>
     </div>
 </div>
+<div th:replace="~{fragments/footer.html :: footer}"></div>
 </body>
 </html>

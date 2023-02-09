@@ -34,14 +34,18 @@ public class MovieServiceImpl implements MovieService {
         movie.setCategory(moviePojo.getCategory());
         movie.setShows(moviePojo.getShows());
 
-        if(moviePojo.getImage()!=null){
-//            System.out.println(UPLOAD_DIRECTORY);
+        if(moviePojo.getImage()!=null && moviePojo.getImage1()!=null){
             StringBuilder fileNames = new StringBuilder();
             Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, moviePojo.getImage().getOriginalFilename());
             fileNames.append(moviePojo.getImage().getOriginalFilename());
             Files.write(fileNameAndPath, moviePojo.getImage().getBytes());
-
             movie.setImage(moviePojo.getImage().getOriginalFilename());
+
+            StringBuilder fileNames1 = new StringBuilder();
+            Path fileNameAndPath1 = Paths.get(UPLOAD_DIRECTORY, moviePojo.getImage1().getOriginalFilename());
+            fileNames1.append(moviePojo.getImage1().getOriginalFilename());
+            Files.write(fileNameAndPath1, moviePojo.getImage1().getBytes());
+            movie.setImage1(moviePojo.getImage1().getOriginalFilename());
         }
         movieRepo.save(movie);
         return new MoviePojo(movie);

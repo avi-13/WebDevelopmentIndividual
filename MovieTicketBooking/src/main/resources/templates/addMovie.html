@@ -1,92 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Panel</title>
-  <link rel="stylesheet" th:href="@{~/css/addMovies.css}">
-  <link rel="stylesheet" href="/static/css/addMovies.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" th:href="@{~/css/addMovies.css}">
+    <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
+    <link rel="stylesheet" th:href="@{~/css/footer.css}" >
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/dded80a5ca.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
+<div th:replace="~{fragments/navbar.html :: header}"></div>
+
 <div class="container">
-  <h1>Movie Details</h1>
 
-  <form th:method="post" th:action="@{/movie/saveMovie}" th:object="${movie}" enctype="multipart/form-data">
-    <div class="inside_container">
-      <div class="left-side">
+    <h1>Movie Details</h1>
 
-        <input class="field" type="text" hidden placeholder="UserId..."  th:field="*{pid}" th:value="${movie.pid}" />
+    <form th:method="post" th:action="@{/movie/saveMovie}" th:object="${movie}" enctype="multipart/form-data">
 
-        <div class="title movie">
-          <input type="text" placeholder="movie Title" required th:field="*{ptitle}" th:value="${movie.ptitle}" />
-        </div>
+        <div class="left-side">
 
+            <input class="field" type="text" hidden placeholder="UserId..."  th:field="*{movieId}" th:value="${movie.movieId}" />
 
-        <div class="Brand movie">
-          <input type="text" placeholder="Manufacturer Brand" required th:field="*{BName}" th:value="${movie.BName}" />
-        </div>
+            <input type="text" placeholder="MovieTitle" required th:field="*{movieName}" />
 
+            <input type="text" placeholder="MovieDirector" required th:field="*{director}"  />
 
-        <div class="sizemovie" >
-          <select name="Size " id="size">
-            <option value="Null">Size</option>
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="Large">Large</option>
-            <option value="ELarge">Extra Large</option>
-          </select>
-        </div>
+            <input type="text" placeholder="Cast" required th:field="*{cast}"  th:value="${movie.cast}"  />
 
-        <div class="category movie">
-          <select name="Category " id="category"  th:field="*{PCategories}"  th:value="${movie.PCategories}" >
-            <option value="Null" >Category</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Shoes">Shoes</option>
-            <option value="Wedding & Party">Wedding & Party</option>
-            <option value="Jewelry & Accessories">Jewelry & Accessories</option>
-            <option value="Home & Living">Home & Living</option>
-            <option value="Health & Beauty">Health & Beauty</option>
-            <option value="Toys & Entertainment">Toys & Entertainment</option>
-            <option value="Art & Collectibles">Art & Collectibles</option>
-            <option value="Craft Supplies & Tools">Craft Supplies & Tools</option>
-            <option value="Electronics">Electronics</option>
-          </select>
-        </div>
+            <input type="text" placeholder="Genre" required th:field="*{genre}"  th:value="${movie.genre}"  />
 
-        <div class="price movie">
-          <input type="text" placeholder="movie Price" required th:field="*{PPrice}"  th:value="${movie.PPrice}"  />
-        </div>
+            <input type="text" placeholder="Duration" required th:field="*{duration}"  th:value="${movie.duration}"  />
 
-        <div class="description" >
-          <!--      movie  <input type="Text" placeholder="Description" required th:field="*{PDesc}" th:value="${movie.PDesc}"  />-->
-          <textarea rows="10" cols="100" placeholder="movieDescription....." required th:field="*{PDesc}"  th:value="${movie.PDesc}"  > </textarea>
+            <input placeholder="No.of Shows" required th:field="*{shows}" th:value="${movie.shows}"   />
+
+            <select name="category " id="category" th:field="*{category}" th:value="${movie.category}">
+                <option value="Category">Category</option>
+                <option value="Now Showing">Now Showing</option>
+                <option value="Next Change">Next Change</option>
+                <option value="Coming Soon">Coming Soon</option>
+            </select>
+
+            <input type="date" required th:field="*{releaseDate}" th:value="${movie.releaseDate}"   />
+
+            <textarea rows="10" cols="100" placeholder="MovieDescription" required th:field="*{movieDescription}" th:value="${movie.movieDescription}" > </textarea>
 
         </div>
 
-      </div>
+        <div class="moviePic">
+            <img class="img" alt="moviePic" th:src="@{/images/upload.png}" id="movieImage" >
+            <input id="img" hidden th:field="*{image}" accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile()">
+        </div>
 
-      <div class="moviePoster">
-        <img class="img" alt="movieCover" th:src="@{/images/logo.png}" id="movieImage" >
-        <input id="movieImageUpload" hidden accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile()" />
-      </div>
+        <div class="moviePic1">
+            <img class="img1" alt="moviePic1" th:src="@{/images/uploadcover.png}" id="movieImage1" >
+            <input id="img1" hidden th:field="*{image1}" accept="image/jpeg, image/png, image/jpg" type="file" onchange="previewFile1()">
+        </div>
 
-    </div>
-
-
-    <div class="footer">
-      <button type="submit">Add Movie</button>
-    </div>
-
-  </form>
+        <div class="addMovieBtn">
+            <button class="Btn" type="submit">Add Movie</button>
+        </div>
+    </form>
 </div>
-<script src="/static/js/addMovies.js"></script>
-<script th:src="@{~/js/addMovies.js}"></script>
+<script th:src="@{~/js/addMovie.js}"></script>
+<script th:src="@{~/js/addMovie1.js}"></script>
 
+<div th:replace="~{fragments/footer.html :: footer}"></div>
 </body>
-
 
 </html>

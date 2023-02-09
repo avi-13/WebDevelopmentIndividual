@@ -1,0 +1,127 @@
+*{
+  font-family: 'Poppins',sans-serif;
+
+}
+
+.nav {
+  background-color: #070f20;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  width: auto;
+  display: flex;
+}
+.logo-div{
+  margin-right: 4%;
+  margin-left: 8%;}
+
+.btn{
+  background-color: #070f20;
+  height: 50px;
+  cursor: pointer;
+  transition: all 175ms ease-in-out;
+  flex: 1;
+  margin-left: 40px;
+}
+
+.btn:hover{
+  scale: 1.1;
+}
+
+.logo-div .logo{
+  margin-top: 2px;
+  height: 50px;
+  margin-left: 4%;
+}
+
+.nav_link {
+  margin-right: 10%;
+  align-items: center;
+  display: flex;
+  background-color: #070f20;
+}
+
+.nav_link a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px 15px;
+
+}
+.nav_link a:hover {
+background-color: whitesmoke;
+color: black;
+border-radius: 10px;
+}
+
+.nav_link a:active {
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 10px;
+}
+
+.profile-div{
+  margin-left: 5%;
+  align-items: center;
+  display: flex;
+  transition: all 175ms ease-in-out;
+  cursor: pointer;
+}
+
+h4{
+  margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: white;
+  display:flex;
+}
+
+.profile-div:hover{
+  scale: 1.1;
+}
+
+.profile-div .picture{
+  height: 70px;
+  border-radius: 100px;
+  background-color: whitesmoke;
+  float: right;
+  padding-right: 70px;
+  cursor: pointer;
+}
+
+/*.profile-div .dropdown {*/
+/*  margin-top: 65px;*/
+/*  display: none;*/
+/*  position: absolute;*/
+/*  background-color: whitesmoke;*/
+/*  min-width: 160px;*/
+/*  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);*/
+/*  z-index: 1;*/
+/*}*/
+
+/*.dropdown a {*/
+/*  float: none;*/
+/*  color: black;*/
+/*  padding: 12px 16px;*/
+/*  text-decoration: none;*/
+/*  display:block;*/
+/*  text-align: left;*/
+/*}*/
+
+/*.dropdown a:hover {*/
+/*  background-color: whitesmoke;*/
+/*}*/
+
+/*.profile-div:hover .dropdown {*/
+/*  display: block;*/
+/*}*/
+
+
+

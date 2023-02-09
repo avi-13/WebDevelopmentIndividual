@@ -17,6 +17,6 @@ function previewFile() {
 }
 $(function () {
     $("#movieImage").on("click", function () {
-        $("#movieImageUpload").click();
+        $("#img").click();
     });
-});
+})
