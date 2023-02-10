@@ -7,10 +7,13 @@ import com.system.movieticketbooking.services.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Base64;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -49,5 +52,48 @@ public class MovieServiceImpl implements MovieService {
         }
         movieRepo.save(movie);
         return new MoviePojo(movie);
+    }
+
+    @Override
+    public Movie fetchById(Integer id) {
+        Movie movie = movieRepo.findById(id).orElseThrow(()-> new RuntimeException("Could Not Find"));
+        movie = Movie.builder()
+                .id(movie.getId())
+                .movieName(movie.getMovieName())
+                .movieDescription(movie.getMovieDescription())
+                .genre(movie.getGenre())
+                .cast(movie.getCast())
+                .director(movie.getDirector())
+                .category(movie.getCategory())
+                .duration(movie.getDuration())
+                .releaseDate(movie.getReleaseDate())
+                .shows(movie.getShows())
+                .imageBase64(getImageBase64(movie.getImage()))
+                .image1Base64(getImageBase64(movie.getImage1()))
+                .build();
+        return movie;
+    }
+
+//    @Override
+//    public Movie fetchByCategory(String category) {
+//        return null;
+//    }
+
+    @Override
+    public List<Movie> fetchAll() {
+        return movieRepo.findAll();
+    }
+
+    public String getImageBase64(String fileName) {
+        String filePath = System.getProperty("user.dir") + "/sastohubimages/";
+        File file = new File(filePath + fileName);
+        byte[] bytes;
+        try {
+            bytes = Files.readAllBytes(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return Base64.getEncoder().encodeToString(bytes);
     }
 }

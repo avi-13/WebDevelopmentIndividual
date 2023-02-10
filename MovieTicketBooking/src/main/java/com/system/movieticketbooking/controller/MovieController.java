@@ -1,5 +1,6 @@
 package com.system.movieticketbooking.controller;
 
+import com.system.movieticketbooking.entity.Movie;
 import com.system.movieticketbooking.pojo.MoviePojo;
 import com.system.movieticketbooking.services.MovieService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -24,15 +26,35 @@ import java.util.Map;
 @RequestMapping("/movie")
 public class MovieController {
     private final MovieService movieService;
+//    private final MovieRepo movieRepo;
+
     @GetMapping("/addMovie")
     public String addMovies(Model model){
         model.addAttribute("movie", new MoviePojo());
         return "addMovie";
     }
 
-    @GetMapping("/movieList")
-    public String getMovieList(){
-        return "adminDashboard";
+    @GetMapping("/list")
+    public String getMovieList(Model model){
+        List<Movie> movies=movieService.fetchAll();
+        model.addAttribute("movie", movies.stream().map(movie ->
+                Movie.builder()
+                        .id(movie.getId())
+                        .movieName(movie.getMovieName())
+                        .movieDescription(movie.getMovieDescription())
+                        .director(movie.getDirector())
+                        .cast(movie.getCast())
+                        .shows(movie.getShows())
+                        .releaseDate(movie.getReleaseDate())
+                        .duration(movie.getDuration())
+                        .category(movie.getCategory())
+                        .genre(movie.getGenre())
+                        .shows(movie.getShows())
+                        .imageBase64(getImageBase64(movie.getImage()))
+                        .image1Base64(getImageBase64(movie.getImage1()))
+                        .build()
+        ));
+        return "homepage";
     }
 
     @PostMapping("/saveMovie")
