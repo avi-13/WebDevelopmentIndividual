@@ -12,7 +12,7 @@ public class HomepageController {
 
     @GetMapping("/homepage")
     public String homePage() {
-        return "homepage";
+        return "redirect:/movie/movieList";
     }
 
 

@@ -55,13 +55,13 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Movie fetchById(Integer id) {
-        Movie movie = movieRepo.findById(id).orElseThrow(()-> new RuntimeException("Could Not Find"));
-        movie = Movie.builder()
-                .id(movie.getId())
-                .movieName(movie.getMovieName())
-                .movieDescription(movie.getMovieDescription())
-                .genre(movie.getGenre())
+        public Movie fetchById(Integer id) {
+            Movie movie = movieRepo.findById(id).orElseThrow(()-> new RuntimeException("Could Not Find"));
+            movie = Movie.builder()
+                    .id(movie.getId())
+                    .movieName(movie.getMovieName())
+                    .movieDescription(movie.getMovieDescription())
+                    .genre(movie.getGenre())
                 .cast(movie.getCast())
                 .director(movie.getDirector())
                 .category(movie.getCategory())
@@ -74,18 +74,20 @@ public class MovieServiceImpl implements MovieService {
         return movie;
     }
 
-//    @Override
-//    public Movie fetchByCategory(String category) {
-//        return null;
-//    }
-
     @Override
     public List<Movie> fetchAll() {
-        return movieRepo.findAll();
+        List<Movie> movie= movieRepo.findAll();
+        System.out.println(movie);
+         return movie;
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        movieRepo.deleteById(id);
     }
 
     public String getImageBase64(String fileName) {
-        String filePath = System.getProperty("user.dir") + "/sastohubimages/";
+        String filePath = System.getProperty("user.dir") + "/images/";
         File file = new File(filePath + fileName);
         byte[] bytes;
         try {

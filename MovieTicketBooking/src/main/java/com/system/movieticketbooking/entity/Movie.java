@@ -18,31 +18,31 @@ public class Movie {
     @GeneratedValue(generator = "mtb_user_seq_gen", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name ="movie_name", nullable = false)
+    @Column(name ="movie_name")
     private String movieName;
 
-    @Column(name="description" , nullable = false)
+    @Column(name="description")
     private String movieDescription;
 
-    @Column(name = "casts" , nullable = false)
+    @Column(name = "casts" )
     private String cast;
 
-    @Column(name = "director", nullable = false)
+    @Column(name = "director" )
     private String director;
 
-    @Column(name = "genre",nullable = false)
+    @Column(name = "genre" )
     private String genre;
 
-    @Column(name = "release_date",nullable = false)
+    @Column(name = "release_date" )
     private Date releaseDate;
 
-    @Column(name = "duration", nullable = false)
+    @Column(name = "duration" )
     private String duration;
 
-    @Column(name = "category", nullable = false)
+    @Column(name = "category" )
     private String category;
 
-    @Column(name = "shows",nullable = false)
+    @Column(name = "shows" )
     private Integer shows;
 
     private String image;

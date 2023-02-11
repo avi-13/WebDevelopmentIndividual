@@ -12,4 +12,6 @@ public interface MovieService {
     Movie fetchById(Integer id);
 
     List<Movie> fetchAll();
+
+    void deleteById(Integer id);
 }

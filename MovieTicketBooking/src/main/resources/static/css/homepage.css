@@ -15,7 +15,7 @@ body{
 
 .imageBanner{
     height:600px;
-    background: url("../images/spoiderverse.jpg") no-repeat center center;
+    background: url("../images/johnwickbg.jpg") no-repeat center center;
     object-fit: contain;
     width: 85%;
     margin-left: 8.1%;
@@ -48,18 +48,60 @@ body{
     object-fit: fill;
     height: 390px;
     width: 323px;
+    transition: .5s ease;
 }
 
-.nextChange{
+.btn1 {
+    background: beige;
+    transition: .5s ease;
+     opacity: 0;
+    position: absolute;
+    transform: translate(30%, 212%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    height: 41px;
+    width: 200px;
+}
+
+.btn2 {
     display: flex;
-    border: solid yellow;
-    height: 100%;
-    width: 100%;
+    border: solid black;
+    background: transparent;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    transform: translate(30%, 550%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    align-items: center;
+    /* align-content: center; */
+    height: 41px;
+    width: 200px;
+}
+
+
+.autoMovies:hover .movieImg {
+opacity: 0.3;
+}
+
+.autoMovies:hover .btn1 {
+opacity: 1;
+z-index: 10;
+}
+.autoMovies:hover .btn2 {
+opacity: 1;
+z-index: 10;
+}
+.nextChange{
+display: flex;
+border: solid yellow;
+height: 100%;
+width: 100%;
 }
 
 .comingSoon{
-    display: flex;
-    border: solid teal;
-    height: 100%;
-    width: 100%;
+display: flex;
+border: solid teal;
+height: 100%;
+width: 100%;
 }

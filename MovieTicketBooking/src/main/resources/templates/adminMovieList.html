@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin-GetProduct</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" th:href="@{~/css/adminMovieList.css}">
+</head>
+<body>
+<div class="amlMainClass">
+  <div class="amlAutoDiv" th:each="movies:${adMovies}">
+    <a class="anchor" th:href="@{~/admin/getMovie/}+${movies.id}">
+      <img class="amlImg" th:src="'data:image/png;base64,'+${movies.imageBase64}" />
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

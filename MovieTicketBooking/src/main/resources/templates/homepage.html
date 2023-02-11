@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>HomePage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
     <link rel="stylesheet" th:href="@{~/css/footer.css}" >
@@ -20,7 +20,11 @@
         <div class="nowShowing" >
             <div class="autoMovies" th:each="nowshowing:${movie}">
 <!--                <a th:href="@{~/admin/product/}+${product.productId}">-->
-                    <img class="movieImg" th:src="'data:image/png;base64,'+${nowshowing.imageBase64}"  />
+                    <img class="movieImg" th:src="'data:image/png;base64,'+${nowshowing.imageBase64}" >
+
+                        <a href= "/" class="btn1">BookNow</a>
+
+                        <a href= "/" class="btn2">SeeDetails</a>
 <!--                <h6 th:text="${nowshowing.h}"></h6>-->
 
 <!--                </a>-->
