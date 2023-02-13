@@ -7,15 +7,17 @@ import java.util.List;
 
 public interface UserService {
 
+    User fetchById(Integer id);
+
     String saveUser(UserPojo userPojo);
 
     User findByEmail(String email);
 
     List<User> fetchAll();
-//
-//    User findByEmail(Integer id) ;
-//
-//    void deleteById(Integer id);
 
+    String updateResetPassword(String email);
 
+    void processPasswordResetRequest(String email);
+
+    void sendEmail();
 }

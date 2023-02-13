@@ -20,9 +20,9 @@
         <div class="container">
             <h1>Login to access to<br />your account</h1>
             <div class="login-form">
-                <form th:method="post" th:action="@{/login}">
-                    <input type="text" name="email" placeholder="E-mail Address">
-                    <input type="password" name="password" placeholder="Password">
+                <form method="post" th:action="@{/login}" >
+                    <input type="text" name="email" id="email" placeholder="E-mail Address" required autofocus/>
+                    <input type="password" name="password" id="password" placeholder="Password" required autofocus/>
                     <button class="submit" type="submit">LOG-IN</button>
                 </form>
             </div>

@@ -66,6 +66,7 @@ public class MovieController {
     @GetMapping("/movieList")
     public String getMovieList(Model model){
         List<Movie> movies=movieService.fetchAll();
+        model.addAttribute("movies", movies);
         model.addAttribute("movie", movies.stream().map(movie ->
                 Movie.builder()
                         .id(movie.getId())

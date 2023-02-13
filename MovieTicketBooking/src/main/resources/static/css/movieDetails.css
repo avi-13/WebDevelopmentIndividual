@@ -1,0 +1,54 @@
+*{
+    font-family: math;
+}
+body {
+    background: rgb(3, 3, 72);
+}
+.mdMainClass{
+    height:100vh;
+    border: 4px solid black;
+}
+.mdDetailsWrapper{
+    padding: 3% 5% 3% 5%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 15%;
+    border: 4px solid blue;
+}
+.mdImagePart{
+    height: auto;
+    width: 35%;
+    border: 4px solid goldenrod;
+    background: url("../images/johnwick.jpg") no-repeat center center;
+}
+
+.mdDetailsPart{
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    width: 80%;
+    border: 4px solid red;
+}
+
+h1{
+    background-color: aliceblue;
+    margin: 0  0  0  0;
+    text-align:left;
+    text-transform: uppercase;
+    font-family: math;
+}
+
+h2{
+    background-color: rgb(102, 220, 86);
+    margin: 0.5%  0  0  0;
+    color: white;
+    text-align:left;
+    font-family: math;
+}
+p{
+    background-color: rgb(130, 190, 241);
+    margin: 1%  0  0  0;
+    text-align:left;
+    font-family: math;
+    font-size: 21px;
+}

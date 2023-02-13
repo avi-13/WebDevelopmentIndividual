@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieDetails</title>
+  <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
+  <link rel="stylesheet" th:href="@{~/css/footer.css}" >
+  <link rel="stylesheet" th:href="@{~/css/movieDetails.css}" >
+</head>
+<body>
+<div th:replace="~{fragments/navbar.html :: header}"></div>
+<div class="mdMainClass">
+  <h1>Movie Details</h1>
+  <div class="mdDetailsWrapper">
+    <div class="mdImagePart">
+    </div>
+    <form class="mdDetailsPart">
+      <h1 class="mdTitle" ><b>Ant Man and The Wasp : Quantum Mania</b></h1>
+      <h2 class="mdGenre">Action Adventure Comedy Thriller</h2>
+      <p class="mdDesc">Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.Hover over the image to see the effect.</p>
+      <h2>Director: <span class="mdDir">Director Name</span></h2>
+      <h2>Cast: <span class="mdCast">Upendra, Sudeep, Shriya </span></h2>
+      <h2>Release On: <span class="mdRel">2022-02-14</span></h2>
+      <h2>Duration: <span class="mdDir">Ant Man and The Wasp : Quantum Mania</span></h2>
+    </form>
+  </div>
+</div>
+
+<div th:replace="~{fragments/footer.html :: footer}"></div>
+</body>
+</html>
