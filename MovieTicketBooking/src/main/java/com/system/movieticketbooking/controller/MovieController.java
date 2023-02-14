@@ -3,6 +3,7 @@ package com.system.movieticketbooking.controller;
 import com.system.movieticketbooking.entity.Movie;
 import com.system.movieticketbooking.pojo.MoviePojo;
 import com.system.movieticketbooking.services.MovieService;
+import com.system.movieticketbooking.services.UserService;
 import com.system.movieticketbooking.services.impl.MovieServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ import java.util.Map;
 @RequestMapping("/movie")
 public class MovieController {
     private final MovieService movieService;
+    private final UserService userService;
     private final MovieServiceImpl movieServiceImpl;
 
     @GetMapping("/addMovie")
@@ -64,10 +66,9 @@ public class MovieController {
 
     }
     @GetMapping("/movieList")
-    public String getMovieList(Model model){
-        List<Movie> movies=movieService.fetchAll();
-        model.addAttribute("movies", movies);
-        model.addAttribute("movie", movies.stream().map(movie ->
+    public String getNowShowing(Model model){
+        Map<String, List<Movie>> allMovies = movieService.getMovieList();
+        model.addAttribute("movie", allMovies.get("nowShowing").stream().map(movie ->
                 Movie.builder()
                         .id(movie.getId())
                         .movieName(movie.getMovieName())
@@ -82,6 +83,23 @@ public class MovieController {
                         .shows(movie.getShows())
                         .imageBase64(movieServiceImpl.getImageBase64(movie.getImage()))
                         .image1Base64(movieServiceImpl.getImageBase64(movie.getImage1()))
+                        .build()
+        ));
+        model.addAttribute("movies", allMovies.get("nextChange").stream().map(movies ->
+                Movie.builder()
+                        .id(movies.getId())
+                        .movieName(movies.getMovieName())
+                        .movieDescription(movies.getMovieDescription())
+                        .director(movies.getDirector())
+                        .cast(movies.getCast())
+                        .shows(movies.getShows())
+                        .releaseDate(movies.getReleaseDate())
+                        .duration(movies.getDuration())
+                        .category(movies.getCategory())
+                        .genre(movies.getGenre())
+                        .shows(movies.getShows())
+                        .imageBase64(movieServiceImpl.getImageBase64(movies.getImage()))
+                        .image1Base64(movieServiceImpl.getImageBase64(movies.getImage1()))
                         .build()
         ));
         return "homepage";

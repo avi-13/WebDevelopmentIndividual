@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Base64;
-import java.util.List;
+import java.sql.Date;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -74,18 +74,6 @@ public class MovieServiceImpl implements MovieService {
         return movie;
     }
 
-    @Override
-    public List<Movie> fetchAll() {
-        List<Movie> movie= movieRepo.findAll();
-        System.out.println(movie);
-         return movie;
-    }
-
-    @Override
-    public void deleteById(Integer id) {
-        movieRepo.deleteById(id);
-    }
-
     public String getImageBase64(String fileName) {
         String filePath = System.getProperty("user.dir") + "/images/";
         File file = new File(filePath + fileName);
@@ -98,4 +86,60 @@ public class MovieServiceImpl implements MovieService {
         }
         return Base64.getEncoder().encodeToString(bytes);
     }
+
+
+    @Override
+    public void deleteById(Integer id) {
+        movieRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Movie> fetchAll() {
+//        Date date = new Date(System.currentTimeMillis());
+        //        List<Movie> nowShowing = new ArrayList<>();
+//        Map<String,List<Movie>> nowShowingList = new HashMap<>();
+//
+//        for(Movie each : allMovies){
+////            Date eachReleaseDate = each.getReleaseDate();
+//        if (each.getReleaseDate().equals(date)){
+//            nowShowing.add(each);
+////            System.out.println(nowShowingList);
+//        }
+//
+//        nowShowingList.put(,no)
+////
+//        }
+
+
+//        System.out.println(movie);
+         return movieRepo.findAll();
+    }
+
+    @Override
+    public Map<String, List<Movie>> getMovieList() {
+        List<Movie> allMovieList = movieRepo.findAll();
+
+        Date date = new Date(System.currentTimeMillis());
+
+        List<Movie> nowShowing = new ArrayList<>();
+        List<Movie> nextChange = new ArrayList<>();
+        List<Movie> comingSoon = new ArrayList<>();
+
+        Map<String, List<Movie>> movies = new HashMap<>();
+
+        for (Movie each : allMovieList) {
+            if (each.getReleaseDate().before(date)) {
+                nowShowing.add(each);
+            } else if(each.getReleaseDate()==(date)||each.getReleaseDate().after(date)) {
+                nextChange.add(each);
+            }
+        }
+        movies.put("nowShowing", nowShowing);
+        movies.put("nextChange", nextChange);
+
+        return movies;
+    }
+
+
+
 }
