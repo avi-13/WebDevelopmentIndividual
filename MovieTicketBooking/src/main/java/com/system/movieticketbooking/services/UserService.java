@@ -11,6 +11,8 @@ public interface UserService {
 
     String saveUser(UserPojo userPojo);
 
+    void deleteById(Integer id);
+
     User findByEmail(String email);
 
     List<User> fetchAll();

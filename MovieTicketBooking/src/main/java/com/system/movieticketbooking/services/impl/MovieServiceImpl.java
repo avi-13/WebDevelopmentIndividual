@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.*;
 
 @Service
@@ -95,23 +96,6 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<Movie> fetchAll() {
-//        Date date = new Date(System.currentTimeMillis());
-        //        List<Movie> nowShowing = new ArrayList<>();
-//        Map<String,List<Movie>> nowShowingList = new HashMap<>();
-//
-//        for(Movie each : allMovies){
-////            Date eachReleaseDate = each.getReleaseDate();
-//        if (each.getReleaseDate().equals(date)){
-//            nowShowing.add(each);
-////            System.out.println(nowShowingList);
-//        }
-//
-//        nowShowingList.put(,no)
-////
-//        }
-
-
-//        System.out.println(movie);
          return movieRepo.findAll();
     }
 
@@ -119,7 +103,10 @@ public class MovieServiceImpl implements MovieService {
     public Map<String, List<Movie>> getMovieList() {
         List<Movie> allMovieList = movieRepo.findAll();
 
-        Date date = new Date(System.currentTimeMillis());
+        LocalDate today = LocalDate.now();
+        // Get the date of 7 days before today
+        LocalDate sevenDaysBefore = today.plusDays(7);
+        Date sqlSevenDaysBefore = Date.valueOf(sevenDaysBefore);
 
         List<Movie> nowShowing = new ArrayList<>();
         List<Movie> nextChange = new ArrayList<>();
@@ -128,14 +115,17 @@ public class MovieServiceImpl implements MovieService {
         Map<String, List<Movie>> movies = new HashMap<>();
 
         for (Movie each : allMovieList) {
-            if (each.getReleaseDate().before(date)) {
+            if  (Objects.equals(each.getReleaseDate(), Date.valueOf(today)) || (each.getReleaseDate().before(Date.valueOf(today)))) {
                 nowShowing.add(each);
-            } else if(each.getReleaseDate()==(date)||each.getReleaseDate().after(date)) {
+            } else if ((each.getReleaseDate().after(Date.valueOf(today))) && (each.getReleaseDate().before(sqlSevenDaysBefore)) ){
                 nextChange.add(each);
+            } else  {
+                comingSoon.add(each);
             }
         }
         movies.put("nowShowing", nowShowing);
         movies.put("nextChange", nextChange);
+        movies.put("comingSoon", comingSoon);
 
         return movies;
     }

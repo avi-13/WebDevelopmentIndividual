@@ -15,9 +15,11 @@
           <a href="#">Help</a>
       </div>
   </div>
-      <div class="profile-div">
-          <div class="picture" >
-          </div>
+    <a th:href="@{~/user/profile/}+${userdata.id}">
+        <div class="profile-div">
+            <div class="picture" >
+            </div>
             <h4 th:text="${userdata.getFullName()}"></h4>
-      </div>
+        </div>
+    </a>
 </nav>

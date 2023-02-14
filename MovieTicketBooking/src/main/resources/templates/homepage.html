@@ -9,7 +9,7 @@
     <link rel="stylesheet" th:href="@{~/css/homepage.css}" >
 </head>
 <body>
-<div th:replace="~{fragments/navbarLogin.html :: header}"></div>
+<div th:replace="~{fragments/navbar.html :: header}"></div>
 <div class="homeMainClass" style="border: solid black">
     <div class="imageBanner" style="border: solid blue">
     </div>
@@ -32,7 +32,7 @@
         </div>
 
         <div class="nextChange" >
-            <div class="autoMovies" th:each="nextChange:${movies}">
+            <div class="autoMovies" th:each="nextChange:${nextChange}">
                 <img class="movieImg" th:src="'data:image/png;base64,'+${nextChange.imageBase64}" >
 
                 <a href= "/" class="btn1">BookNow</a>
@@ -46,8 +46,13 @@
             <h1>Coming Soon</h1>
         </div>
         <div class="comingSoon" >
-            <div>
-                <img src="spoiderverse.jpg" alt="spoider" width="100px" height="100px">
+            <div class="autoMovies" th:each="comingSoon:${comingSoon}">
+                <img class="movieImg" th:src="'data:image/png;base64,'+${comingSoon.imageBase64}" >
+
+                <a href= "/" class="btn1">BookNow</a>
+
+                <a href= "/" class="btn2">SeeDetails</a>
+
             </div>
         </div>
     </div>

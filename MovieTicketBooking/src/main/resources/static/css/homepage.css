@@ -39,7 +39,16 @@ body{
 .nextChange{
     display: flex;
     flex-wrap: wrap;
-    border: solid royalblue;
+    border: solid #e8dd09;
+    height: 100%;
+    width: 100%;
+    padding: 1% 0 0 3%;
+}
+
+.comingSoon{
+    display: flex;
+    flex-wrap: wrap;
+    border: solid #e8dd09;
     height: 100%;
     width: 100%;
     padding: 1% 0 0 3%;

@@ -1,15 +1,15 @@
 package com.system.movieticketbooking.controller;
 
+import com.system.movieticketbooking.entity.User;
 import com.system.movieticketbooking.pojo.UserPojo;
 import com.system.movieticketbooking.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
@@ -47,18 +47,28 @@ public class UserController {
         return "redirect:/login";
     }
 
-//    @GetMapping("/edit/{id}")
-//    public String editUser(@PathVariable("id") Integer id, Model model){
-//    User user = userService.fetchById(id);
-//    model.addAttribute("user", new UserPojo(user));
-//    return "login";
-//    }
+    @GetMapping("/profile/{id}")
+    public String getUserProfile(@PathVariable("id") Integer id, Model model, Principal principal){
+        User user = userService.fetchById(id);
+        model.addAttribute("userdata",userService.findByEmail(principal.getName()));
+        model.addAttribute("users", new UserPojo(user));
+        model.addAttribute("currentUser", user);
+        return "userProfile";
+    }
 
-//    @GetMapping("/delete/{id}")
-//    public String deleteuser(@PathVariable("id") Integer id){
-//        userService.deleteById(id);
-//        return "redirect:/user/list";
-//    }
+    @GetMapping("/edit/{id}")
+    public String editUser(@PathVariable("id") Integer id, Model model, Principal principal){
+        User user =userService.fetchById(id);
+        model.addAttribute("userdata",userService.findByEmail(principal.getName()));
+        model.addAttribute("currentUser", new UserPojo(user));
+        return "redirect:/user/profile/{id}";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteUserId(@PathVariable("id") Integer id) {
+        userService.deleteById(id);
+        return "redirect:/login";
+    }
 
 
     @GetMapping("/forgotpassword")
@@ -72,8 +82,9 @@ public class UserController {
         userService.processPasswordResetRequest(userPojo.getEmail());
         model.addAttribute("message","Your new password has been sent to your email Please " +
                 "check your inbox");
-        return "redirect:/home";
+        return "redirect:/login";
     }
+
 
 
 

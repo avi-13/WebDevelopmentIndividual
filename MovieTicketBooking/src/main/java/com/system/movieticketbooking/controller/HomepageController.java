@@ -35,10 +35,8 @@ public class HomepageController {
 //    }
 
     @GetMapping("/movieDetails")
-    public String getMovieList(Model model){
-//        List<Movie> movies=movieService.fetchAll();
+    public String getMovieDetails(Model model){
         Map<String, List<Movie>> allMovies = movieService.getMovieList();
-//        model.addAttribute("movies", movies);
         model.addAttribute("movie", allMovies.get("nextChange").stream().map(movie ->
                 Movie.builder()
                         .id(movie.getId())

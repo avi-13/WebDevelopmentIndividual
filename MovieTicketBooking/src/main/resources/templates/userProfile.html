@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserProfile</title>
+    <link rel="stylesheet" th:href="@{~/css/userProfile.css}">
+    <link rel="stylesheet" th:href="@{~/css/navbar.css}" >
+    <link rel="stylesheet" th:href="@{~/css/footer.css}" >
+</head>
+
+
+<body>
+
+<div th:replace="~{fragments/navbar.html :: header}"></div>
+
+<form th:method="post" th:action="@{/user/save}" th:object="${currentUser}" >
+
+    <div class="rightPart">
+        <h2>
+            My Details
+        </h2>
+        <h3>
+            Personal Information
+        </h3>
+
+        <input class="id" hidden type="text" th:field="*{id}" th:value="${currentUser.getId()}">
+
+        <div class="nameBox">
+            Name<br> <input class="info" type="text" th:field="*{fullName}" th:value="${currentUser.getFullName()}">
+        </div>
+
+        <div class="number">
+            Phone Number<br>
+            <input class="info" type ="text" th:field="*{mobileNo}" th:value="${currentUser.getMobileNo()}">
+        </div>
+
+        <div class="userName">
+            UserName<br>
+            <input class="info" type="text" th:field="*{username}" th:value="${currentUser.getUsername()}">
+        </div>
+
+        <div class="email">
+            Email Address<br>
+            <input class="info" type="email" th:field="*{email}" th:value="${currentUser.getEmail()}">
+        </div>
+
+        <div class="pw">Password<br>
+            <input class="info" type="password" th:field="*{password}" th:value="${currentUser.getPassword()}">
+        </div>
+
+        <div class="cpw">Retype Password<br>
+            <input class="info" type="password">
+        </div>
+
+
+        <div class="saveButton">
+            <a class="delete" th:href="@{~/user/edit/}+${currentUser.id}">
+                <button type="submit">SaveChanges</button>
+            </a>
+        </div>
+
+
+        <div class="deleteButton">
+            <a class="delete " th:href="@{~/user/delete/}+${currentUser.id}">
+                <button type="button" >DeleteAccount</button>
+            </a>
+        </div>
+    </div>
+</form>
+
+<div th:replace="~{fragments/footer.html :: footer}"></div>
+
+</body>
+
+</html>

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -66,7 +67,8 @@ public class MovieController {
 
     }
     @GetMapping("/movieList")
-    public String getNowShowing(Model model){
+    public String getNowShowing(Model model, Principal principal){
+        model.addAttribute("userdata",userService.findByEmail(principal.getName()));
         Map<String, List<Movie>> allMovies = movieService.getMovieList();
         model.addAttribute("movie", allMovies.get("nowShowing").stream().map(movie ->
                 Movie.builder()
@@ -85,21 +87,38 @@ public class MovieController {
                         .image1Base64(movieServiceImpl.getImageBase64(movie.getImage1()))
                         .build()
         ));
-        model.addAttribute("movies", allMovies.get("nextChange").stream().map(movies ->
+        model.addAttribute("nextChange", allMovies.get("nextChange").stream().map(nextChange ->
                 Movie.builder()
-                        .id(movies.getId())
-                        .movieName(movies.getMovieName())
-                        .movieDescription(movies.getMovieDescription())
-                        .director(movies.getDirector())
-                        .cast(movies.getCast())
-                        .shows(movies.getShows())
-                        .releaseDate(movies.getReleaseDate())
-                        .duration(movies.getDuration())
-                        .category(movies.getCategory())
-                        .genre(movies.getGenre())
-                        .shows(movies.getShows())
-                        .imageBase64(movieServiceImpl.getImageBase64(movies.getImage()))
-                        .image1Base64(movieServiceImpl.getImageBase64(movies.getImage1()))
+                        .id(nextChange.getId())
+                        .movieName(nextChange.getMovieName())
+                        .movieDescription(nextChange.getMovieDescription())
+                        .director(nextChange.getDirector())
+                        .cast(nextChange.getCast())
+                        .shows(nextChange.getShows())
+                        .releaseDate(nextChange.getReleaseDate())
+                        .duration(nextChange.getDuration())
+                        .category(nextChange.getCategory())
+                        .genre(nextChange.getGenre())
+                        .shows(nextChange.getShows())
+                        .imageBase64(movieServiceImpl.getImageBase64(nextChange.getImage()))
+                        .image1Base64(movieServiceImpl.getImageBase64(nextChange.getImage1()))
+                        .build()
+        ));
+        model.addAttribute("comingSoon", allMovies.get("comingSoon").stream().map(comingSoon ->
+                Movie.builder()
+                        .id(comingSoon.getId())
+                        .movieName(comingSoon.getMovieName())
+                        .movieDescription(comingSoon.getMovieDescription())
+                        .director(comingSoon.getDirector())
+                        .cast(comingSoon.getCast())
+                        .shows(comingSoon.getShows())
+                        .releaseDate(comingSoon.getReleaseDate())
+                        .duration(comingSoon.getDuration())
+                        .category(comingSoon.getCategory())
+                        .genre(comingSoon.getGenre())
+                        .shows(comingSoon.getShows())
+                        .imageBase64(movieServiceImpl.getImageBase64(comingSoon.getImage()))
+                        .image1Base64(movieServiceImpl.getImageBase64(comingSoon.getImage1()))
                         .build()
         ));
         return "homepage";

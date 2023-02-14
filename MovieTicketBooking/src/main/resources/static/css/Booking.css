@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin: 20px;
+}
+
+.seats {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+}
+
+label {
+    display: block;
+    text-align: center;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + span {
+    display: block;
+    padding: 10px;
+    background-color: lightgray;
+    text-align: center;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked + span {
+    background-color: green;
+    color: white;
+}

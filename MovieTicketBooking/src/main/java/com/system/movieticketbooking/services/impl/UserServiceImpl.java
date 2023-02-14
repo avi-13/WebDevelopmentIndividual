@@ -58,20 +58,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void deleteById(Integer id) {
+        userRepo.deleteById(id);
+    }
+
+    @Override
     public User findByEmail(String email) {
-        User user = userRepo.findByEmail(email)
+        return userRepo.findByEmail(email)
                 .orElseThrow(() -> new AppException("Invalid User email", HttpStatus.BAD_REQUEST));
-        return user;
     }
 
     public List<User> fetchAll() {
         return this.userRepo.findAll();
     }
-
-//    @Override
-//    public void deleteById(Integer id) {
-//        userRepo.deleteById(id);
-//    }
 
     @Override
     public String updateResetPassword(String email) {
