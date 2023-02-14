@@ -5,9 +5,6 @@ import com.system.movieticketbooking.pojo.UserPojo;
 import com.system.movieticketbooking.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,11 +23,11 @@ public class UserController {
 
     @GetMapping("/login")
     public String login() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "login";
-        }
-        return "redirect:/home/homepage";
+//        }
+//        return "redirect:/home/homepage";
     }
 
     @GetMapping("/list")
